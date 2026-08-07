@@ -1,0 +1,23 @@
+Open Food Facts (world.openfoodfacts.org)
+API	What it does	Our use
+Product lookup — /api/v2/product/{barcode}	Give it a barcode, get everything known about that product: nutrition, ingredients, allergens, labels, packaging, photo URLs	✓ source of all food facts
+Search — /cgi/search.pl	Find products by filters (country, category, data richness)	✓ candidate collection
+Search v2 — /api/v2/search	Newer search endpoint, but returns limited results	—
+Product photos — image_*_url fields	Direct links to the front, nutrition-label, and ingredients photos	✓ our 3 photo types per product
+Full data dump — products.jsonl.gz	The entire database (millions of products) as one downloadable file — no API calls needed	fallback only; useful for scaling up
+Taxonomies — categories/labels/allergens.json	Official dictionaries that normalize tags across languages	—
+Robotoff API	Machine-learning predictions, including label OCR	— (candidate for image-QA expansion)
+Prices / write APIs	Crowdsourced prices; editing the database	not needed
+
+TourAPI 4.0 (Korea Tourism Organization, KorService2)
+API	What it does	Our use
+searchKeyword2	Search attractions by keyword	✓ candidate collection
+areaBasedList2	List attractions by region code (e.g. Busan)	✓ candidate collection
+detailCommon2	Core info: overview text, address, coordinates, homepage	✓ main fact source
+detailIntro2	Practical info: opening hours, closed days, parking, phone	✓ structured facts
+detailImage2	Extra photos, each with license info	✓ place photos (KOGL Type-1 only)
+detailInfo2	Repeating details: course legs, facility-by-facility info	— (future: more facts)
+locationBasedList2	Search around a coordinate within a radius	—
+searchFestival2 / searchStay2	Festivals and accommodation search	—
+areaCode2 / categoryCode2	Region and category code tables	—
+EngService2 (separate service, same endpoints)	The same tourism data in English (Japanese, Chinese services also exist)	— (future: cross-language QA material)

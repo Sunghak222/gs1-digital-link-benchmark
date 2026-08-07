@@ -1,0 +1,102 @@
+{"fact_id": "food-80761761-sugars_100g", "value": {"amount": 31.5, "unit": "g"}}
+{"fact_id": "food-80761761-sugars_serving", "value": {"amount": 6.14, "unit": "g"}}
+{"fact_id": "food-80761761-saturated_fat_100g", "value": {"amount": 9.4, "unit": "g"}}
+{"fact_id": "food-80761761-saturated_fat_serving", "value": {"amount": 1.84, "unit": "g"}}
+{"fact_id": "food-50457250-sugars_100g", "value": {"amount": 13.1, "unit": "g"}}
+{"fact_id": "food-50457250-sugars_serving", "value": {"amount": 1.97, "unit": "g"}}
+{"fact_id": "food-8715035110809-salt_100g", "value": {"amount": 9.8, "unit": "g"}}
+{"fact_id": "food-8715035110809-salt_serving", "value": {"amount": 9.8, "unit": "g"}}
+{"fact_id": "food-8715035110809-sodium_100g", "value": {"amount": 3.92, "unit": "g"}}
+{"fact_id": "food-8715035110809-sodium_serving", "value": {"amount": 3.92, "unit": "g"}}
+{"fact_id": "food-8076809513753-fat_100g", "value": {"amount": 28.5, "unit": "g"}}
+{"fact_id": "food-8076809513753-fat_serving", "value": {"amount": 13.52, "unit": "g"}}
+{"fact_id": "food-5740900404465-fat_100g", "value": {"amount": 61.0, "unit": "g"}}
+{"fact_id": "food-5740900404465-fat_serving", "value": {"amount": 61.0, "unit": "g"}}
+{"fact_id": "place-9520000000011-total_length_km", "value": 8.9, "value_literal": "총연장 8.9km"}
+{"fact_id": "place-9520000000042-height_meters", "value": 95, "value_literal": "95m"}
+{"fact_id": "place-9520000000073-established_year", "value": 1402, "value_literal": "1402년(태종 2)에 창건한"}
+{"fact_id": "place-9520000000073-restoration_start_year", "value": 1980, "value_literal": "1980년대부터 본격적으로 경복궁 복원공사가 진행되었고"}
+{"fact_id": "place-9520000000080-unesco_registration_date", "value": "1997-12-06", "value_literal": "불국사와 석굴암은 1997년 12월 6일 유네스코 세계문화유산으로 등재되었다."}
+{"fact_id": "place-9520000000097-elevation_m", "value": 156, "value_literal": "해발 156m인 성산 일출봉"}
+{"fact_id": "place-9520000000097-crater_diameter_m", "value": 450, "value_literal": "지름 450m"}
+{"fact_id": "place-9520000000028-annual_visitors", "value": 920000, "value_literal": "연간 92만 명의 국내외 관광객이 다녀가는"}
+{"fact_id": "place-9520000000035-established_year", "value": 1418, "value_literal": "1418년"}
+{"fact_id": "place-9520000000103-notable_drama", "value": "가을동화", "value_literal": "가을동화의 촬영지"}
+{"fact_id": "place-9520000000073-closed_days", "value": "매주 월요일 ※ 단, 정기휴일이 공휴일 및 대체공휴일과 겹칠 경우에는 개방하며, 그 다음의 첫 번째 비공휴일이 정기휴일임"}
+{"fact_id": "place-9520000000042-opening_hours", "value": "09:30~20:00 (입장 마감 19:30)"}
+{"fact_id": "place-9520000000035-opening_hours", "value": "06:00~19:00"}
+{"fact_id": "place-9520000000011-parking", "value": "가능 (교량 하부 공영주차장 이용)"}
+{"fact_id": "place-9520000000103-parking", "value": "가능 (약 350대)"}
+{"fact_id": "food-0096619194261-energy_kcal_100g", "value": {"amount": 345.5, "unit": "kcal"}}
+{"fact_id": "food-0096619194261-energy_kcal_serving", "value": {"amount": 190.0, "unit": "kcal"}}
+{"fact_id": "food-0096619194261-carbohydrates_100g", "value": {"amount": 92.2, "unit": "g"}}
+{"fact_id": "food-0096619194261-carbohydrates_serving", "value": {"amount": 50.7, "unit": "g"}}
+{"fact_id": "food-0096619194261-fiber_100g", "value": {"amount": 6.55, "unit": "g"}}
+{"fact_id": "food-0096619194261-fiber_serving", "value": {"amount": 3.6, "unit": "g"}}
+{"fact_id": "food-5014213711290-energy_kcal_100g", "value": {"amount": 515.1, "unit": "kcal"}}
+{"fact_id": "food-5014213711290-energy_kcal_serving", "value": {"amount": 515.1, "unit": "kcal"}}
+{"fact_id": "food-5014213711290-fat_100g", "value": {"amount": 37.6, "unit": "g"}}
+{"fact_id": "food-5014213711290-fat_serving", "value": {"amount": 37.6, "unit": "g"}}
+{"fact_id": "food-5014213711290-proteins_100g", "value": {"amount": 18.7, "unit": "g"}}
+{"fact_id": "food-5014213711290-proteins_serving", "value": {"amount": 18.7, "unit": "g"}}
+{"fact_id": "food-7613031473113-energy_kcal_100g", "value": {"amount": 293.4, "unit": "kcal"}}
+{"fact_id": "food-7613031473113-energy_kcal_serving", "value": {"amount": 132.0, "unit": "kcal"}}
+{"fact_id": "food-8076800195057-energy_kcal_100g", "value": {"amount": 312.3, "unit": "kcal"}}
+{"fact_id": "food-8076800195057-energy_kcal_serving", "value": {"amount": 265.4, "unit": "kcal"}}
+{"fact_id": "food-8076800195057-carbohydrates_100g", "value": {"amount": 56.8, "unit": "g"}}
+{"fact_id": "food-8076800195057-carbohydrates_serving", "value": {"amount": 48.2, "unit": "g"}}
+{"fact_id": "food-8076800195057-proteins_100g", "value": {"amount": 10.4, "unit": "g"}}
+{"fact_id": "food-8076800195057-proteins_serving", "value": {"amount": 8.88, "unit": "g"}}
+{"fact_id": "food-8715035110809-energy_kcal_100g", "value": {"amount": 266.5, "unit": "kcal"}}
+{"fact_id": "food-8715035110809-energy_kcal_serving", "value": {"amount": 266.5, "unit": "kcal"}}
+{"fact_id": "food-8715035110809-proteins_100g", "value": {"amount": 7.5, "unit": "g"}}
+{"fact_id": "food-8715035110809-proteins_serving", "value": {"amount": 7.5, "unit": "g"}}
+{"fact_id": "food-8076809513753-carbohydrates_100g", "value": {"amount": 16.5, "unit": "g"}}
+{"fact_id": "food-8076809513753-carbohydrates_serving", "value": {"amount": 7.83, "unit": "g"}}
+{"fact_id": "food-50457250-fat_100g", "value": {"amount": 0.3, "unit": "g"}}
+{"fact_id": "food-50457250-fat_serving", "value": {"amount": 0.045, "unit": "g"}}
+{"fact_id": "food-80761761-energy_kcal_100g", "value": {"amount": 125.6, "unit": "kcal"}}
+{"fact_id": "food-80761761-energy_kcal_serving", "value": {"amount": 24.4, "unit": "kcal"}}
+{"fact_id": "food-80761761-fat_100g", "value": {"amount": 25.1, "unit": "g"}}
+{"fact_id": "food-80761761-fat_serving", "value": {"amount": 4.9, "unit": "g"}}
+{"fact_id": "food-5740900404465-sodium_100g", "value": {"amount": 0.21, "unit": "g"}}
+{"fact_id": "food-5740900404465-sodium_serving", "value": {"amount": 0.21, "unit": "g"}}
+{"fact_id": "food-0096619194261-origins", "value": "Canada"}
+{"fact_id": "food-0096619194261-manufacturing_places", "value": "canada"}
+{"fact_id": "food-5014213711290-manufacturing_places", "value": "Ireland"}
+{"fact_id": "food-5034467000216-manufacturing_places", "value": "Ireland"}
+{"fact_id": "food-5034467000216-origins", "value": "Ireland"}
+{"fact_id": "food-7613031473113-origins", "value": "Germany"}
+{"fact_id": "food-8715035110809-origins", "value": "Belgium"}
+{"fact_id": "food-8715035110809-manufacturing_places", "value": "Belgium"}
+{"fact_id": "food-8076809513753-origins", "value": "Made in Spain"}
+{"fact_id": "food-8076809513753-manufacturing_places", "value": "Spain"}
+{"fact_id": "food-8076809513753-storage_conditions", "value": "Après ouverture, cette sauce se conserve 3 jours au réfrigérateur."}
+{"fact_id": "food-80761761-manufacturing_places", "value": "germany"}
+{"fact_id": "food-5740900404465-origins", "value": "Sweden"}
+{"fact_id": "place-9520000000011-road_number", "value": 77, "value_literal": "광역시도 77호선"}
+{"fact_id": "place-9520000000011-info_center", "value": "051-780-0177"}
+{"fact_id": "place-9520000000011-location_start", "value": "민락동 49호 광장", "value_literal": "수영구 민락동 49호 광장에서"}
+{"fact_id": "place-9520000000028-year_established", "value": 1960, "value_literal": "1960년대 6.25 피난민의 힘겨운 삶의 터전으로 시작되어"}
+{"fact_id": "place-9520000000028-nickname", "value": "한국의 카파도키아", "value_literal": "한국의 카파도키아, 친퀘테레로 불린다."}
+{"fact_id": "place-9520000000028-parking", "value": "불가능"}
+{"fact_id": "place-9520000000035-rebuilt_year", "value": 1940, "value_literal": "1940년대 초"}
+{"fact_id": "place-9520000000035-renamed_year", "value": 1982, "value_literal": "1982년"}
+{"fact_id": "place-9520000000035-info_center", "value": "051-722-7844"}
+{"fact_id": "place-9520000000042-viewing_area", "value": "부산항, 영도대교, 남포동", "value_literal": "부산항과 영도대교, 남포동 일대의 전경"}
+{"fact_id": "place-9520000000059-number_of_theme_zones", "value": 8, "value_literal": "8개의 테마존"}
+{"fact_id": "place-9520000000059-opening_hours", "value": "09:30~20:00<br>\n※ 자세한 사항은 홈페이지 참조"}
+{"fact_id": "place-9520000000059-attraction_name", "value": "Singing Tree", "value_literal": "싱잉트리"}
+{"fact_id": "place-9520000000066-number_of_shipyards", "value": 7, "value_literal": "일곱 곳에 달하는 수리조선소"}
+{"fact_id": "place-9520000000066-parking", "value": "가능 (유료)"}
+{"fact_id": "place-9520000000073-destruction_year", "value": 1597, "value_literal": "1597년(선조 30) 정유재란으로 소실되었는데"}
+{"fact_id": "place-9520000000073-restoration_year", "value": 1872, "value_literal": "1872년(고종 9)에 다시 지어졌다"}
+{"fact_id": "place-9520000000073-parking", "value": "가능 (승용차 130대 / 버스 30대)"}
+{"fact_id": "place-9520000000080-established_year", "value": 516, "value_literal": "신라 법흥왕 3년에 어머니의 뜻에 따라 국가의 안녕과 백성의 평안을 기원하며 창건되었다."}
+{"fact_id": "place-9520000000080-distance_to_seokguram", "value": 5, "value_literal": "불국사에서 약 5㎞ 떨어진 산등성이에는 석굴암이 위치해 있다."}
+{"fact_id": "place-9520000000080-opening_hours", "value": "08:30~17:30 (입장 마감 16:30)"}
+{"fact_id": "place-9520000000097-crater_area_m2", "value": 187600, "value_literal": "면적이 187,600㎡나 되는 분화구"}
+{"fact_id": "place-9520000000097-closed_days", "value": "매달 셋째 주 월요일<br>※ 공휴일인 경우 다음날 휴무"}
+{"fact_id": "place-9520000000097-info_center", "value": "064-783-1059"}
+{"fact_id": "place-9520000000103-closed_days", "value": "매주 월요일"}
+{"fact_id": "place-9520000000103-info_center", "value": "031-580-8214"}

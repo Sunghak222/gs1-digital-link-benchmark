@@ -1,0 +1,12 @@
+place-9520000000097-pip-02
+place-9520000000097-pip-03
+place-9520000000097-support-01
+place-9520000000097-support-02
+place-9520000000103-locationinfo-01
+place-9520000000103-locationinfo-02
+place-9520000000103-openinghoursinfo-01
+place-9520000000103-openinghoursinfo-02
+place-9520000000103-pip-02
+place-9520000000103-pip-03
+place-9520000000103-support-01
+place-9520000000103-support-02

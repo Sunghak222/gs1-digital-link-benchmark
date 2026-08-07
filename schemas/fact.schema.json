@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fact.schema.json",
+  "title": "Atomic fact — single source of truth for pages, QA gold, and counterfactuals",
+  "type": "object",
+  "required": ["fact_id", "entity", "predicate", "value", "linktype", "source"],
+  "additionalProperties": false,
+  "properties": {
+    "fact_id": {
+      "type": "string",
+      "pattern": "^(food|place|pharma)-[0-9]{8,14}-[a-z0-9_-]+$"
+    },
+    "entity": {
+      "type": "string",
+      "pattern": "^(01|414)/[0-9]{13,14}$"
+    },
+    "predicate": { "type": "string", "minLength": 1 },
+    "value": {},
+    "value_normalized": {
+      "description": "Optional normalized form when the source value is free-form (e.g. TourAPI usetime).",
+      "type": ["string", "number", "object", "array", "boolean"]
+    },
+    "linktype": {
+      "description": "The ONE linktype page this fact is rendered on (unique-placement rule).",
+      "type": "string",
+      "minLength": 1
+    },
+    "relation": {
+      "description": "True for cross-entity relation facts (brand, located_in_region) used for multi-hop QA.",
+      "type": "boolean"
+    },
+    "source": {
+      "type": "object",
+      "required": ["origin", "field"],
+      "additionalProperties": false,
+      "properties": {
+        "origin": { "enum": ["off", "tour", "openfda", "wikidata", "wikivoyage", "image", "manual"] },
+        "field": { "type": "string" },
+        "verified_against": { "type": "string" },
+        "passage": {
+          "description": "Source paragraph the fact is embedded in, verbatim (rendered as-is on the page).",
+          "type": "string"
+        },
+        "value_span": {
+          "description": "[start, end) character offsets of the value inside passage.",
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0 },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    }
+  }
+}

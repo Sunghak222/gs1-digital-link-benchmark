@@ -1,0 +1,7398 @@
+[
+ {
+  "source_id": "8076809513753",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8076809513753",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8076800195057",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "8076800195057",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "8076800195057",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8076800195057",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8076800195057",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "80761761",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "80761761",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "80761761",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "80761761",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "80761761",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8715035110809",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5740900404465",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5014213711290",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5014213711290",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5014213711290",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0096619194261",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0096619194261",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0096619194261",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5034467000216",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8076809523547",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "8076809523547",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20724696",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20724696",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20267605",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "8410076600479",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "8410076600479",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010044005126",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20047559",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20047559",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "20047559",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20047559",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20047559",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20047559",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8901262200196",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8901262200196",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20416690",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20416690",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20416690",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489148739",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4056489148739",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4056489148739",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4056489232872",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4056489232872",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4056489232872",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4056489232872",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4056489232872",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4056489232872",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000354800931",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00018166",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00018166",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5021638000434",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5021638000434",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060198643088",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060198643088",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060198643088",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060198643088",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060198642760",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060198642760",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060198642760",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060198642760",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060198642760",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060198642760",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5025125000037",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5025125000037",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5025125000037",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20003166",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20003166",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20003166",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20003166",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20471613",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20471613",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20471613",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20005771",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "3273220182574",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5036589252450",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5036589252450",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5036589252450",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060367181311",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060367181311",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060367181311",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489258353",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4056489258353",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5057967395132",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5057967395132",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5057967395132",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060362070474",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060362070474",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060198640261",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060198640261",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8801073113893",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8801073113893",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8801073113893",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20577391",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20577391",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5034467000650",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5013683305466",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5057373489593",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5057373489593",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5057373489593",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5057373489593",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5057373489593",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20004330",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5099801003315",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5099801003315",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060406080452",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060406080452",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0061232202952",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0021000658831",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0021000658831",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0021000658831",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0021000658831",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0021000658831",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0021000658831",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9352042000298",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0813636021932",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0813636021932",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0813636021932",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0813636021932",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00019101",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00019101",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5036589253471",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5019503018974",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5019503018974",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5019503018974",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5019503018974",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5019503018974",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5019503018974",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489215233",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489030959",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4056489030959",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5036589253273",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5036589253273",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5036589253273",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5036589253273",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8717677339938",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0051500255377",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0051500255377",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0051500255377",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0096619533008",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0096619533008",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0096619533008",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0096619533008",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4088600165455",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600165455",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600165455",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4088600165455",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600165455",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600165455",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4088600165455",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01178395",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0782733000020",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0782733000020",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0782733000020",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0782733000020",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0782733000020",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0782733000020",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8801045999906",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "8801045999906",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8801045999906",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8801045999906",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9352042000342",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9352042000342",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9352042000342",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9352042000342",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0652655001156",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0652655001156",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0652655001156",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "21114731",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "21114731",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "21114731",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4088600266008",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600266008",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600266008",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4088600266008",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010975030020",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5010975030020",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010975030020",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010975030020",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5010975030020",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010975030020",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5053990162765",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5053990162765",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5053990162765",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5053990162765",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060146372756",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060146372756",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060146372756",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060146372756",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060146372756",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060406080223",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060406080223",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060406080223",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060406080223",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060406080223",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060406080223",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5900820000011",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5900820000011",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5900820000011",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8714100590430",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000436338826",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000436338826",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000436338826",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5019503002133",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5019503002133",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5019503002133",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5019503002133",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5019503002133",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5019503002133",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060367180383",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00234931",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00234931",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00234931",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20434878",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8001665705066",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "8001665705066",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "8001665705066",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "8001665705066",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8001665705066",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8008698011294",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "8008698011294",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8008698011294",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "3068320055008",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489175209",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4056489175209",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4056489175209",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4056489175209",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8801073115514",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "8801073115514",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "8801073115514",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8801073115514",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0884912126115",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0884912126115",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0894700010052",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0894700010052",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0894700010052",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060262485262",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060262485262",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060262485262",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060262485262",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060262485262",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060262485262",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060262485262",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0018627102571",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0018627102571",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0018627102571",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0068200750156",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0068200750156",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0068200750156",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0068200750156",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0068200750156",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0068200750156",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000462979826",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000462979826",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000462979826",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000462979826",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000462979826",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5000462979826",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010026512840",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5019503018110",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5019503018110",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060088701607",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060088701607",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5411188123132",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5411188123132",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5900820001353",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5900820001353",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5900820001353",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00146098",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00146098",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00146098",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5015326450069",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5027952012511",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "8008698040126",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "8008698040126",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "8008698040126",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "8008698040126",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8008698040126",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0853358000495",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0884912126016",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0884912126016",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4061462693410",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4061462693410",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000119532305",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000119532305",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000119532305",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000119532305",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5059512727047",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0051000012616",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0051000012616",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0051000012616",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0051000012616",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20719159",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20719159",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "3415581105926",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4088600231907",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600231907",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600231907",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000169567388",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010228001081",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5010228001081",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010228001081",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010228001081",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5010228001081",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010228001081",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00251303",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00251303",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00251303",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00251303",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00973342",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000147026593",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000147026593",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000147026593",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000147026593",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000147026593",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5050179762099",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5057753915698",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0049508006008",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0049508006008",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0049508006008",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0049508006008",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01454437",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "01454437",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01454437",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01454437",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "3023290624012",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010338202798",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5035251000146",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060132284308",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060132284308",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060150940002",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "3154230045984",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "3154230045984",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "3154230045984",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "3154230045984",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "3154230045984",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "3154230045984",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "3154230045984",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057373126719",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5057373126719",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0025293001503",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0025293001503",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0025293001503",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0025293001503",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0025293001503",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0025293001503",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01304893",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01304893",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01304893",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300652801286",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9300652801286",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9300652801286",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9300652801286",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9300652801286",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300652801286",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9300652801286",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0055653170259",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5051790009976",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0061148179010",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0061148179010",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0061148179010",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0061148179010",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01344899",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01344899",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01344899",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000232024725",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000232024725",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000232024725",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000232024725",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000232024725",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000232024725",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5057967013869",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060048309003",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060048309003",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060048309003",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060048309003",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060048309003",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060048309003",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060048309003",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5740900402768",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5740900402768",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5740900402768",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0016000124950",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0016000124950",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0016000124950",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0016000124950",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0016000124950",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0016000124950",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4260556631158",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4260556631158",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4260556631158",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4260556631158",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4260556631158",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5051399360447",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5052320752782",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5052320752782",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00634526",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00634526",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01810295",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01810295",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01810295",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "03016954",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "03016954",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600231921",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000128831581",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060674960050",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0070662030035",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20080211",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "3415581152920",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "3415581152920",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4088600284941",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600284941",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600284941",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600284941",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600284941",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4088600284941",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000119120656",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000119120656",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383860479",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0064420010223",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0064420010223",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0064420010223",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0018627703396",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0018627703396",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0044738102353",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0048000007070",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0048000007070",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0068721712619",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0068721712619",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0068721712619",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0085696608044",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0085696608044",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "03249659",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "03249659",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "03249659",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000119300102",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000246728596",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "01167160",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01174410",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20575007",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000295144422",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000295144422",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00568517",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00568517",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0063211206418",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0063211206418",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0063211206418",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0064042006734",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0076808008470",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0076808008470",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0076808008470",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01099096",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4056489324973",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4056489324973",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4056489324973",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4056489324973",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000436101949",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5051413365236",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5055540004334",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5055540004334",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5055540004334",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5055540004334",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5055540004334",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057545828434",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5057545828434",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060040119501",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060040119501",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060040119501",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060040119501",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060040119501",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060040119501",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060298880765",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060298880765",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060298880765",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060298880765",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060298880765",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060298880765",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8711327374904",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "8711327374904",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310055536517",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310055536517",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310354890006",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0015292700187",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0015292700187",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0021000026791",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00429931",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00429931",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01729580",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01808414",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01808414",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01808414",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01808414",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01808414",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "29061518",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "29061518",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "29061518",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "3274935201307",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "3274935201307",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "3274935201307",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489324478",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4056489324478",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4056489324478",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000119115881",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010171000018",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8711327318373",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "8711327318373",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "8711327318373",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "8711327318373",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9345544005328",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0014100074120",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00318518",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0038000169663",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0038000169663",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00394475",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20008895",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20008895",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20008895",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20008895",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4088600273211",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600273211",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600273211",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600273211",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4088600273211",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000246726011",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000246726011",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010292948466",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010292948466",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010292948466",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5010292948466",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010292948466",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5052319993325",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5052319993325",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5053947126796",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5053947126796",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5053947126796",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5054775144686",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5057172223411",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5057172223411",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057373267108",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5057967013821",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "59082279",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "59082279",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "59082279",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "59082279",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "59082279",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "59082279",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0041196740745",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0041196740745",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0041196740745",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0041196740745",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0041196740745",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0041196740745",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00762403",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00762403",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01531053",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01531053",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01737769",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "01737769",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01737769",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01737769",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01737769",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000108162858",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000108162858",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000316000522",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000354907357",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5025840003962",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9400563448638",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9400563448638",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9400563448638",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9400563448638",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9400563448638",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0014100079477",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0017077103084",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0020685003165",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0020685003165",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00492539",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00492539",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00492539",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00492539",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0051500751367",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0051500751367",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0051500751367",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0051500751367",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0051500751367",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0051500751367",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0051500751367",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0055872515176",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0055872515176",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0055872515176",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0055991041020",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0055991041020",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0055991041020",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0055991041020",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0055991041020",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0063211158779",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0096619845774",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0096619845774",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0096619845774",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0096619845774",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0096619845774",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0096619845774",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01034752",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01034752",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01034752",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "01222500",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01222500",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01510256",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "01510256",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0811670030040",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0811670030040",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0895059000619",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0895059000619",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20178147",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20178147",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20178147",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20178147",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20178147",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20178147",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20674502",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4025500278106",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000436652465",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010251592839",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5010251592839",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010251592839",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5011059002148",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5011059002148",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5050854584565",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5050854584565",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5050854584565",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5050854584565",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5050854584565",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5050854584565",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5050854584565",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5052910596635",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5052910596635",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5052910596635",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5052910596635",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9310354981353",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9310354981353",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9310354981353",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310354981353",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9310354981353",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00129503",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00129503",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0014100074816",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0014100074816",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0014100078845",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0019320015441",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0019320015441",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0019320015441",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0019320015441",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0019320015441",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0019320015441",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0019320015441",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0051000273499",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0051000273499",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0059800509503",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01155280",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01155280",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01155280",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0664164100411",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0772945736251",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0772945736251",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "29308033",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4056489011286",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4056489220794",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4056489220794",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4056489714392",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4056489714392",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4056489714392",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4056489714392",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000116124701",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000116124701",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000116124701",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000116124701",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5000116124701",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000171058201",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000181024692",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000358218299",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000358218299",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5011546491332",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5025840004075",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5025840004075",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060048309126",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060048309126",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060059531028",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060059531028",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060195902768",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060195902768",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5099749001817",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5099749001817",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5099749001817",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5099749001817",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "7622210959874",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "7622210959874",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "7622210959874",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9300601395583",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9310023138705",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9310023138705",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310023138705",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9310023138705",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9339687137282",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9400563448652",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9400563448652",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9400563448652",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9400563448652",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9400563448652",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0021000642731",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00288217",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00306782",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00306782",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00306782",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00401920",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00401920",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00401920",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00401920",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00401920",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00401920",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00401920",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0046000843513",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0046000843513",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383995867",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0060383995867",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0060383995867",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0060383995867",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0062639329686",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0062639329686",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0074326000129",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0074326000129",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0074326000129",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0084253242950",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0084253242950",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0084253242950",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0084253242950",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0084253242950",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20953584",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20953584",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "29090624",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "29253548",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "29253548",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "29253548",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600524375",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5011040002058",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5034444115209",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5034444115209",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5034444115209",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5034444115209",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5053947026645",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "7393714517906",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9310273721375",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9310273721375",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310273721375",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310273721375",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00318655",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00318655",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00318655",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00381222",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00381222",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00381222",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00381222",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0041570081013",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0041570081013",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0041570081013",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0041570081013",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0061719011763",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0066800000152",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0076808000221",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00789400",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00864909",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00864909",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00864909",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "01464092",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "01464092",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01464092",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01464092",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "01499186",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01499186",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01499186",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01499186",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01499186",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "01499186",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "03321751",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0643843714156",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0643843714156",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0664164100299",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0664164100299",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0664164100299",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0664164100299",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0805509082409",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0805509082409",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0851087000496",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0851087000496",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0851087000496",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0851087000496",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0851087000496",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0851087000496",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0851087000496",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0857183005632",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0857183005632",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0857183005632",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20844752",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "26311272",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "29253531",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "29253531",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "29253531",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "29253531",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "40111216",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "40111216",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4088600309057",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600309057",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600309057",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4088600309057",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600309057",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600309057",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4088600309057",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000128782357",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000295151031",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5050974504559",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5051898983109",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5051898983109",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5051898983109",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5051898983109",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5051898983109",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5052675050205",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5052675050205",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5052910873354",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5055540007465",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5057172483747",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5057753926151",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060081113483",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060081113483",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "7750960004459",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "7750960004459",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "7750960004459",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "7750960004459",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "7750960004459",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "7750960004459",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "7750960004459",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300601325900",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9300601325900",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300633443177",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9300633443177",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9300633443177",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9300633443177",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300633443177",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9300633443177",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9310645103334",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310645103334",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9316389000335",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9316389000335",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00036351",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0011110034915",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0011110034915",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0011110034915",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0011110034915",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0013562300631",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0013562300631",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0013562300631",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0013562300631",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0030000568293",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0030000568293",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0030000568293",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0030000568293",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00378208",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0044000068547",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0048001213487",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00595537",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00595537",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00595537",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00595537",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00595537",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00595537",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0060383008970",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0060383008970",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383063221",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0060383063221",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0060383063221",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383095413",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383147310",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0060383147310",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383216443",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383688431",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00614375",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00614375",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0068200910536",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0068200910536",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0072655009516",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0072655404526",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0072655404526",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0072655404526",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0078742000947",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0078742000947",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0078742000947",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0078742000947",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0078742022505",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0078742022505",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0078742022505",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0078742022505",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0078742146294",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0078742146294",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0078742253879",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0078742253879",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0078742253879",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0078742253879",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0078742297071",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0078742297071",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0078742297071",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0078742297071",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0078742297071",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00935791",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0096619177592",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0096619177592",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0096619177592",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "01531039",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "01531039",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0604565025661",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0626027814088",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0626027814088",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0626027814279",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0626027814279",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0626027814279",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0626027814279",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0626027814279",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0626027814279",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0626027814279",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0627735016122",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0627987299717",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0628110422026",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0628110422026",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0628110422026",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0628110422552",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0628110422552",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0629025410450",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0646670462597",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0646670462597",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0820103881517",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0871459000329",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0871459000329",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0871459001999",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0871459001999",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0871459001999",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0871459001999",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20635244",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20635244",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "29136094",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "29136094",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "29136094",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "29136094",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "29136094",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4001686305409",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4001686305409",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489341130",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4056489341130",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4056489341130",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4056489341130",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4056489341130",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489691303",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600048543",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600048543",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4088600048543",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4088600067254",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600321684",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600321684",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600321684",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000116108633",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000116108633",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000116108633",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000116108633",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000116108633",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000232027023",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000232027023",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000232027023",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5010084905042",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5010084905042",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010084905042",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010084905042",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010084905042",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010251764649",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010482642570",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010482642570",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010482642570",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010525099941",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5010525099941",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010525099941",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010525099941",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5010525099941",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010525099941",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010525099941",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5011056042185",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5011069029340",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5011069029340",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5011069029340",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5011069029340",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5011262236026",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5011262236026",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5011357000426",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5011357000426",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5011357000426",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5014276701061",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5014276701061",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5055365635003",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5055365635003",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5055365635003",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5055365635003",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5055365635003",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057172487707",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5057172487707",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057753894771",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060096250739",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060195907374",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060195907374",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060406080872",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060406080872",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060406080872",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060406080872",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060406080872",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060406080872",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060406080872",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060679200250",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060679200250",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060679200250",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060735420011",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060735420011",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060735420011",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060735420011",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060735420011",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060735420011",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060735420011",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5099894912419",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5390413010006",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300657032760",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9300657032760",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9300657032760",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300658406997",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9300658406997",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9310155561624",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9310155561624",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310155561624",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9310155561624",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310155561624",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9310155561624",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9310645101897",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9310645101897",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9310645101897",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310645101897",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9310645101897",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310645101897",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9310645233796",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310645233796",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9310645233796",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9310645233796",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9310761714100",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9310761714100",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310761714100",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310761714100",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9414997006661",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9414997006661",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00352376",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00352376",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00352376",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0055325002178",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0055325002178",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0055325002178",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0055325002178",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0055991041051",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0055991041051",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0055991041051",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0055991041051",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0055991041051",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0056210254207",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0056210254207",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0069481031606",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0722252144034",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0722252144034",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0722252144034",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0722252144034",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0722252144034",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0722252144034",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0757932386527",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0757932386527",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0757932386527",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5099839380877",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5449000214799",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5449000214799",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20004132",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20004132",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "20004132",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20004132",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20004132",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20004132",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0016000264694",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0016000264694",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0016000264694",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20072360",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20072360",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20072360",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20072360",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5052910706706",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5036829756328",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5036829756328",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5036829756328",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5036829756328",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4088600161686",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000108022176",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000108022176",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000108022176",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000108022176",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000108022176",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000108022176",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5021185201223",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5021185201223",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060120281975",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060120281975",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060120281975",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010578008020",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01504972",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01504972",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0612322000387",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0612322000387",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0612322000387",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0898999011288",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0898999011288",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0898999011288",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0898999011288",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0898999011288",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489017479",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4056489017479",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5016887003060",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5016887003060",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5016887003060",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5016887003060",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060495113291",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060495113291",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060495113291",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060495113291",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060495113291",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060495113291",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060495113291",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8851613101378",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010003052949",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010003052949",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5050974504139",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5050974504139",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5050974504139",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5050974504139",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5050974504139",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5050974504139",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5050974504139",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5054775467549",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5054775467549",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5054775467549",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060298572431",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8002270576829",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "8002270576829",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20164072",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20164072",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5391528181070",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5391528181070",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010115900718",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010228001869",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010228001869",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060262485583",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060262485583",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060262485583",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060262485583",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060262485583",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489334538",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5057545745946",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5057545745946",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5057545745946",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5057545745946",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5057545745946",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5057545745946",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4088600107004",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600107004",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600107004",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5059697706981",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5059697706981",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5059697706981",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5059697706981",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5059697706981",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0051000012517",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0051000012517",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0051000012517",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0051000012517",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0051000012517",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0039000045049",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0039000045049",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0039000045049",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0039000045049",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0039000045049",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0039000045049",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20622930",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000358218312",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000358218312",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000358218312",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000358218312",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060337220071",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060337220071",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060337220071",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060384263076",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00159425",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060489730206",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5901713021991",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "8850025000026",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "8850025000026",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "8850025000026",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "8850025000026",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010525167671",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010525167671",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010525167671",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057753264093",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5057753264093",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5057753264093",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5057753264093",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0079813000118",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0079813000118",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20164027",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01781182",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01781182",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01781182",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5016887004906",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5016887004906",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5016887004906",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5099077001572",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5099077001572",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "01600322",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "01600322",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0037600115445",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0037600115445",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0037600115445",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0037600115445",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0037600115445",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0037600115445",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0037600115445",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0842515010354",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0842515010354",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0842515010354",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0842515010354",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20482077",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0039000086639",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0039000086639",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0039000086639",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0039000086639",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0039000086639",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489710592",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600250663",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600250663",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5026489494609",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0064042001005",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01696844",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01696844",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000436426356",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5011308000307",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060367181151",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060367181151",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20389970",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000169280508",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000169280508",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000169280508",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000169280508",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5011157888170",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5011157888170",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5011157888170",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5053526984939",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5053526984939",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5053526984939",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5053526984939",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5053526984939",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5053526984939",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060367181359",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060367181359",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060367181359",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060367181359",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060367181359",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0077330530057",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0077330530057",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0077330530057",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0077330530057",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0077330530057",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0077330530057",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0077330530057",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01642629",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01642629",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "7613031513000",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "7613031513000",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "7613031513000",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "7613031513000",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300657114046",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0096619180905",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0096619180905",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01642599",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0757528037475",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0757528037475",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "10002230",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5011157994352",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5011157994352",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5011157994352",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5011157994352",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5022463450913",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5052910139979",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5052910139979",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5052910139979",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0076808008487",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0076808008487",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000128583534",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5026489483054",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5026489483054",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5026489483054",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5026489483054",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5026489483054",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5057373184818",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5057373184818",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5057373184818",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0012000813313",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0012000813313",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0012000813313",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0012000813313",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00383080",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00383080",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00383080",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00383080",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00383080",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "03249833",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "03249833",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "29229109",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "29229109",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "29229109",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "29229109",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "29229109",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489127307",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4056489127307",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5000169538265",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000169538265",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000169538265",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000169538265",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000169538265",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000169538265",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5000169538265",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5016084000107",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5016084000107",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5031021057976",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5941446008722",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5941446008722",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5941446008722",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5941446008722",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5941446008722",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5941446008722",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0016000122505",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0016000122505",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0016000122505",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0016000122505",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0016000122505",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00343299",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0072180634290",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0072180634290",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0072180634290",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0072180634290",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0072180634290",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0072180634290",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01785050",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01785050",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4056489789857",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4056489789857",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000128975827",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000128975827",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000128975827",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0051000142931",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0051000142931",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0051000142931",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0051000142931",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00585798",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00585798",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00585798",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00585798",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00585798",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00585798",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01834581",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01834581",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01834581",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01834581",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01834581",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4088600304625",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600304625",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000128472913",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000128472913",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000128472913",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5000128472913",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5201051001076",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5201051001076",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5201051001076",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5201051001076",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00208291",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0027000500064",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0057000038557",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0057000038557",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01832587",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "01832587",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "01832587",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01832587",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01832587",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01832587",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20844257",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "20844257",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20844257",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4099100041347",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4099100134742",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000169165034",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000169165034",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000169165034",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000169165034",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000169165034",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000169165034",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010092093144",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010092093144",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010525041674",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010525041674",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "6003770008546",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "6003770008546",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00301428",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00301428",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00301428",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00301428",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00301428",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00301428",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0058807388135",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0058807388135",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0058807388135",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01510225",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "01510225",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01510225",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20166632",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20166632",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20166632",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20166632",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20616588",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "20616588",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20616588",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20616588",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600138886",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4088600138886",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4088600138886",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600138886",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600138886",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4099100060843",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010067338171",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5052004249638",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5052004249638",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5052004249638",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5052004249638",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5052004249638",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5052004249638",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5052319070088",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9300633386689",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9300633386689",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9300633386689",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300633910198",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9300633910198",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300633910198",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9310421000093",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9310421000093",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00032971",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00032971",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0036632075321",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0036632075321",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0036632075321",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0036632075321",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0036632075321",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00425605",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00425605",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00425605",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00425605",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0056200010127",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0056200010127",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0056200010127",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0056200010127",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0056200926459",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0056200926459",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0056200926459",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0056200926459",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0056600004269",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0060383758882",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0065987000108",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0065987000108",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0065987000108",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0078742054872",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0078742054872",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0096619430192",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01899993",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "03222461",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "03222461",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "03222461",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "03222461",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20364625",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "20364625",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "20364625",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20364625",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20364625",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20953577",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20953577",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20953577",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4001956218316",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4001956218316",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4712905016050",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4712905016050",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4712905016050",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4712905016050",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4712905016050",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4712905016050",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5000128430791",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000128430791",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000128430791",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5000128430791",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000128430791",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000128430791",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5000169765715",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5026489490892",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5029872021826",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5029872021826",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5029872021826",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5029872021826",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5029872021826",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5054775703296",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5057753125721",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300633453350",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9300633453350",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9300633453350",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300633453350",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9310155100434",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9310155100434",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9310155100434",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9310155100434",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310155100434",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9310155100434",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0055577105498",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "03027691",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "03314463",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0681131911962",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0681131911962",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0850004207017",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0850004207017",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0859982007299",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0859982007299",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0859982007299",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20515645",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "20515645",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20515645",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4056489101376",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4088600237008",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088600237008",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000358051261",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5000358051261",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5000358051261",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5000358051261",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000358051261",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5000358051261",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010251788683",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5032722302921",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5032722302921",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5032722302921",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5032722302921",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5032722302921",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5032722302921",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5032722302921",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5054268934602",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5054268934602",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5054268934602",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5054268934602",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5054268934602",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057373318022",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5057373318022",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00324915",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00324915",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0036514237687",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0042396800055",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0042396800055",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0044000069919",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0044000069919",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0044000069919",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00463775",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00463775",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0060383193836",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00616690",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00616690",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0063400508941",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0063400508941",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0079900001233",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00969376",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0628451868507",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0674959000079",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0710996000433",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0710996000433",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0710996000433",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0797677300105",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0797677300105",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4006040106111",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4088700160466",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4088700160466",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4901515118586",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4901515118586",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4901515118586",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4901515118586",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4901515118586",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5000108199007",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000119089731",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5000128723220",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5050854830709",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5050854830709",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5054269745610",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5054269745610",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5054402225061",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5054402225061",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5057172080861",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5057172080861",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5057172080861",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5057172080861",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5057172080861",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057172688890",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5057753914882",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5057753914882",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9300633476823",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300633476823",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0004411056779",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0004411056779",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0004411056779",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0014500013514",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0014500013514",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0014500013514",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0014500013514",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00175098",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0025000021275",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0025000021275",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0025000021275",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0025000021275",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00298186",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00298186",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00298186",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00298186",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00298186",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00298186",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0031200025715",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00341202",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "00341202",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00341202",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00341202",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "00341202",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00341202",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00358156",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00358156",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "00358156",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0041220926589",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0042400910787",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0042400910787",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0042400910787",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0055270876046",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0055270876046",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0060383037529",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383995768",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0061719011961",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0061719011961",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0066800004044",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0066800004044",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0067275001088",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0067275006021",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0067275006021",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0067275006021",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0067275006021",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0067275006021",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0072999176035",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0072999176035",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0072999176035",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0072999176035",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0072999176035",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0078742141602",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0078742141602",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0078742141602",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0078742141602",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0078742237398",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0078742237398",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0078742237398",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0078742237428",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0078742237428",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0078742237428",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0082592631008",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0082592631008",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0082592631008",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "00900027",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "00900027",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "00900027",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "00900027",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "01506266",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "01506266",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01506266",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01695427",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "01695427",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "01851076",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "03230527",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "05925803",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "05925803",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0620580000025",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "06260361",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "06260361",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "06260361",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "06260361",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "06260361",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "06260361",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0627735014654",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0627735014654",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0697658000072",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0697658000072",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0697658000072",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0697658000072",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0805509995945",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0837503000684",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "0837503000684",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0837503000684",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "20453923",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "20453923",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20453923",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "20453923",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "20995379",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "20995379",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "3058360750360",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "3058360750360",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "3058360750360",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4061464669345",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600047331",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4088600224596",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4088600224596",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4088600224596",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "4099100261295",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4099100261295",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4099100261295",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4099100261295",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4099100261295",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010251494706",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5010251494706",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5010251494706",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5010251494706",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5010251494706",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5010251494706",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5010251494706",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5010482537265",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5010482537265",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5016143003308",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5016143003308",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5016143003308",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5016143003308",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5019312081824",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5030101022279",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5030101022279",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5030101022279",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5030101022279",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5052320985234",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5053947211539",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5053947211539",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5053947211539",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5054781580751",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5054781580751",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5055946000879",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5057753155810",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5057753155810",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5057753155810",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5057753155810",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5057753155810",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5057753155810",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5060178070019",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060178070019",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060178070019",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060323900598",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060323900598",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060470140052",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060470140052",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5060470140052",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060470140052",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5099839594427",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "51619886",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "51619886",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "51619886",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "5397199001532",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5397199001532",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5397199001532",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5397199001532",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "7501058649959",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "7501058649959",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8002873024307",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8002873024314",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "8253662037071",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300601029174",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9300601029174",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300601774081",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9300601774081",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9300601774081",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9300601774081",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300633211905",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9300633211905",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9300633211905",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9300633211905",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9300633211905",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9300633350079",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9300633350079",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310082158089",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9310082158089",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9310082158089",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9310082158089",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9310082158089",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310082158089",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9310082158089",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9310135020424",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "9310653102107",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "9310653102107",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9312141000636",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "9312141000636",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "9400597021050",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "9400597021050",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "9400597021050",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "9400597021050",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0060383200572",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0060383200572",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0060383200572",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0060383200572",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "0068826212861",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0078742429809",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0078742429809",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "0078742429809",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "0078742429809",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "0078742429809",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "0078742431017",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "0872227000046",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4060800304148",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "4060800304148",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4060800304148",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "4060800304148",
+  "predicate": "salt_100g"
+ },
+ {
+  "source_id": "4099100069402",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "4099100069402",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "4099100069402",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "4099100069402",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5014369289360",
+  "predicate": "carbohydrates_100g"
+ },
+ {
+  "source_id": "5014369289360",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5014369289360",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060120404688",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060120404688",
+  "predicate": "proteins_100g"
+ },
+ {
+  "source_id": "5060323902912",
+  "predicate": "energy_kcal_100g"
+ },
+ {
+  "source_id": "5060323902912",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060323902912",
+  "predicate": "saturated_fat_100g"
+ },
+ {
+  "source_id": "5060323907825",
+  "predicate": "fat_100g"
+ },
+ {
+  "source_id": "5060323907825",
+  "predicate": "sugars_100g"
+ },
+ {
+  "source_id": "5060323907825",
+  "predicate": "proteins_100g"
+ }
+]

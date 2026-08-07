@@ -1,0 +1,6 @@
+httpx
+jinja2
+jsonschema
+python-dotenv
+pyyaml
+pytest

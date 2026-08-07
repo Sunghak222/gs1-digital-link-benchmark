@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="{{ charset }}"><title>{{ title }}</title>
+{% if jsonld %}<script type="application/ld+json">{{ jsonld }}</script>{% endif %}
+</head>
+<body>
+<h1>{{ title }}</h1>
+{% for p in passages %}<p>{{ p }}</p>
+{% endfor %}
+{% if scalars %}<h2>{{ labels.details }}</h2>
+<dl>
+{% for label, value in scalars %}  <dt>{{ label }}</dt><dd>{{ value }}</dd>
+{% endfor %}</dl>
+{% endif %}
+{% for label, items in lists %}<h2>{{ label }}</h2>
+<ul>
+{% for item in items %}  <li>{{ item }}</li>
+{% endfor %}</ul>
+{% endfor %}
+{% if nutrition %}<h2>{{ labels.nutrition }}</h2>
+{% if nutrition.serving_size %}<p>{{ labels.serving }}: {{ nutrition.serving_size }}</p>{% endif %}
+<table>
+<tr><th>{{ labels.nutrient }}</th><th>{{ labels.per100 }}</th><th>{{ labels.per_serving }}</th></tr>
+{% for name, per100, serving in nutrition.rows %}<tr><td>{{ name }}</td><td>{{ per100 }}</td><td>{{ serving }}</td></tr>
+{% endfor %}</table>
+{% endif %}
+{% for heading, text in boilerplate %}<h2>{{ heading }}</h2>
+<p>{{ text }}</p>
+{% endfor %}
+</body>
+</html>

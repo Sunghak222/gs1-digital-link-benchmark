@@ -1,0 +1,40 @@
+# This repo holds the machinery, not the corpus.
+#
+# The corpus is deterministically reproducible from work/selection.yaml plus the
+# cached sources (verified 2026-08-07: re-running extract_facts reproduces
+# facts.jsonl byte-for-byte), so built artifacts and the released dataset stay
+# out of git. Ship the dataset separately.
+#
+# Note: gitignore has no inline comments — every '#' must start its own line.
+
+# caches and dumps
+data/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.DS_Store
+.vlm_cache.json
+
+# built corpus (7.6 GB + 7.8 GB)
+/entities/
+/counterfactual/
+/facts.jsonl
+/facts.pretty.json
+/manifest.json
+
+# dataset and run records — shipped separately
+/releases/
+/results/
+/logs/
+/qa.jsonl
+/qa.csv
+
+# work/: keep the inputs that make the corpus reproducible, drop derivations
+work/*
+# the corpus definition
+!work/selection.yaml
+# human decision: which facts to alter
+!work/counterfactual-overrides.jsonl
+# VLM cross-check output (costly to redo)
+!work/image-qa-exclusions.json

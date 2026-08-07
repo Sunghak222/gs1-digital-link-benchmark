@@ -1,0 +1,5 @@
+food-00000050457250-nutritionalinformation-02
+food-00000050457250-allergeninformation-01
+place-9520000000028-locationinfo-01
+place-9520000000011-locationinfo-01
+food-00000080761761-certificationinfo-01

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head><meta charset="{{ charset }}"><title>{{ title }}</title></head>
+<body>
+<h1>{{ title }}</h1>
+{% for p in passages %}<p>{{ p }}</p>
+{% endfor %}
+{% if scalars %}<h2>{{ labels.details }}</h2>
+<table>
+<tr><th>{{ labels.item }}</th><th>{{ labels.value }}</th></tr>
+{% for label, value in scalars %}<tr><td>{{ label }}</td><td>{{ value }}</td></tr>
+{% endfor %}</table>
+{% endif %}
+{% for label, items in lists %}<h2>{{ label }}</h2>
+<table>
+<tr><th>#</th><th>{{ label }}</th></tr>
+{% for item in items %}<tr><td>{{ loop.index }}</td><td>{{ item }}</td></tr>
+{% endfor %}</table>
+{% endfor %}
+{% if nutrition %}<h2>{{ labels.nutrition }}</h2>
+{% if nutrition.serving_size %}<p>{{ labels.serving }}: {{ nutrition.serving_size }}</p>{% endif %}
+<table>
+<tr><th>{{ labels.nutrient }}</th><th>{{ labels.per100 }}</th><th>{{ labels.per_serving }}</th></tr>
+{% for name, per100, serving in nutrition.rows %}<tr><td>{{ name }}</td><td>{{ per100 }}</td><td>{{ serving }}</td></tr>
+{% endfor %}</table>
+{% endif %}
+{% for heading, text in boilerplate %}<h2>{{ heading }}</h2>
+<p>{{ text }}</p>
+{% endfor %}
+</body>
+</html>

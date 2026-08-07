@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "linkset.schema.json",
+  "title": "RFC 9264 linkset (shape matched to id.oliot.org responses, measured 2026-07-08)",
+  "type": "object",
+  "required": ["linkset"],
+  "additionalProperties": false,
+  "properties": {
+    "linkset": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["anchor"],
+        "properties": {
+          "anchor": { "type": "string", "format": "uri" }
+        },
+        "additionalProperties": {
+          "description": "Each non-anchor key is a link relation (GS1 linktype URI) holding target objects.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["href"],
+            "additionalProperties": true,
+            "properties": {
+              "href": { "type": "string", "minLength": 1 },
+              "type": { "type": "string", "pattern": "^[a-z]+/[A-Za-z0-9.+-]+$" },
+              "title": { "type": "string" },
+              "hreflang": {
+                "type": "array",
+                "items": { "type": "string", "pattern": "^[a-z]{2}$" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

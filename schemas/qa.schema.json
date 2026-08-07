@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qa.schema.json",
+  "title": "QA pair — gold is fact-id-first, answer-string-second",
+  "type": "object",
+  "required": ["qa_id", "entity", "question", "gold_fact_ids", "gold_answer", "tags"],
+  "additionalProperties": false,
+  "properties": {
+    "qa_id": { "type": "string", "pattern": "^(food|place|pharma)-[a-z0-9_-]+-[a-z0-9_-]+-[0-9]{2}$" },
+    "entity": {
+      "description": "Primary entity (multi-hop QA lists every involved fact in gold_fact_ids).",
+      "type": "string",
+      "pattern": "^(01|414)/[0-9]{13,14}$"
+    },
+    "question": { "type": "string", "minLength": 5 },
+    "gold_fact_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "gold_answer": { "type": "string", "minLength": 1 },
+    "tags": {
+      "type": "object",
+      "required": ["modality", "lang", "hop", "difficulty"],
+      "additionalProperties": false,
+      "properties": {
+        "modality": { "enum": ["html", "image", "video"] },
+        "lang": { "enum": ["ko", "en"] },
+        "hop": { "enum": ["single", "multi"] },
+        "difficulty": { "enum": ["easy", "hard"] },
+        "cross_lingual": { "type": "boolean" }
+      }
+    },
+    "review": {
+      "description": "Human-review verdict, filled from work/qa-review.csv.",
+      "enum": ["approved", "edited", "rejected"]
+    }
+  }
+}
