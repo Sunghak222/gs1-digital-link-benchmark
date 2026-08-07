@@ -31,13 +31,13 @@ from scripts.common.config import BENCH_ROOT, SCHEMA_DIR, WORK_DIR
 from scripts.common.llm import llm_json
 
 QA_SCHEMA = json.loads((SCHEMA_DIR / "qa.schema.json").read_text(encoding="utf-8"))
-_QA_VALIDATOR = validator_for(QA_SCHEMA)(QA_SCHEMA)  # 재컴파일 방지 (2026-08-05 감사 F6)
+_QA_VALIDATOR = validator_for(QA_SCHEMA)(QA_SCHEMA)  # compiled once, not per call
 
 _MANIFEST: dict | None = None
 
 
 def _manifest() -> dict:
-    """manifest.json(49MB) 1회 로드 캐시 (감사 F8 — 종전엔 두 번 통째 파싱)."""
+    """Load the manifest once; it used to be parsed in full twice."""
     global _MANIFEST
     if _MANIFEST is None:
         _MANIFEST = json.loads((BENCH_ROOT / "manifest.json").read_text(encoding="utf-8"))
@@ -144,7 +144,7 @@ def multihop(facts: list[dict], entity_map: dict, overridden: set[str]) -> list[
                     f"Among the {brand} products in this catalog, which one contains milk?",
                     gold, name[milk[0]], "en")
 
-    # same region (place, 시/도 단위)
+    # same region (places, province level)
     regions: dict[str, list[str]] = defaultdict(list)
     for e, preds in by_entity.items():
         if "located_in_region" in preds:
@@ -264,7 +264,7 @@ def run_draft(batch: str | None = None, entities_file: Path | None = None) -> No
         draft_path, review_csv = out_dir / "qa-draft.jsonl", out_dir / "qa-review.csv"
     draft_path.write_text("".join(json.dumps(q, ensure_ascii=False) + "\n" for q in qas), encoding="utf-8")
 
-    with review_csv.open("w", newline="", encoding="utf-8-sig") as fh:  # BOM: 엑셀 한글 호환
+    with review_csv.open("w", newline="", encoding="utf-8-sig") as fh:  # BOM so Excel reads the Korean columns
         w = csv.DictWriter(fh, fieldnames=CSV_COLUMNS)
         w.writeheader()
         for qa in qas:

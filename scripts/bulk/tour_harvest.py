@@ -1,13 +1,14 @@
-"""대량 확장 — TourAPI 장소 수확기 (docs/08 §2.2). 일일 한도 인지형 + 이어달리기.
+"""Bulk expansion — TourAPI place harvester. Quota-aware and resumable.
 
-    python -m scripts.bulk.tour_harvest sweep                # [1] 전국 목록 (~140회, 캐시 후 0회)
-    python -m scripts.bulk.tour_harvest eval --budget 700    # [3] 상세 평가 (장소당 3회)
-    python -m scripts.bulk.tour_harvest select --batch day-03  # [5] 통과분 → 10의 배수 append
+    python -m scripts.bulk.tour_harvest sweep                   # nationwide list (~140 calls, then cached)
+    python -m scripts.bulk.tour_harvest eval --budget 700       # detail evaluation, 3 calls per place
+    python -m scripts.bulk.tour_harvest select --batch day-03   # append the passers
     python -m scripts.bulk.tour_harvest all --budget 700 --batch day-03
 
-게이트 (docs/08): 소개글 300자+ / KOGL **Type1 명시** 사진 3장+ / 주소.
-상태는 work/bulk/tour-eval.jsonl (평가 1곳 = 1줄, 재실행 시 건너뜀).
-실 HTTP 호출만 세고(캐시 히트 무료) 예산 소진 시 우아하게 중단 — 다음 날 같은 명령.
+Gate: a 300+ character overview, three or more photos explicitly licensed KOGL
+Type 1, and an address. Verdicts accumulate in work/bulk/tour-eval.jsonl, one line
+per place, so a re-run never spends quota on a place it already judged. Only real
+HTTP calls count against the budget; the run stops cleanly when it is exhausted.
 """
 from __future__ import annotations
 
@@ -43,7 +44,7 @@ class QuotaExhausted(RuntimeError):
 
 
 def _install_counter(budget: int) -> dict[str, int]:
-    """실 HTTP GET만 계수 — cached_json의 캐시 히트는 공짜."""
+    """Count real HTTP GETs only; a cache hit costs no quota."""
     counter = {"n": 0, "budget": budget}
     orig = fetch.get_json
 
@@ -98,7 +99,7 @@ def run_sweep() -> None:
 # ---------------------------------------------------------------------------
 
 def _interleave_by_area(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """지역을 돌아가며 뽑아 자연스러운 전국 분포 (균등 강제는 아님)."""
+    """Round-robin across regions for a naturally spread pool, not a forced quota."""
     by_area: dict[Any, list[dict[str, Any]]] = {}
     for r in rows:
         by_area.setdefault(r.get("areacode"), []).append(r)
@@ -115,10 +116,11 @@ def run_eval(budget: int) -> None:
     pool = read_jsonl(POOL)
     if not pool:
         sys.exit("먼저 sweep을 실행하세요")
-    done = {r["id"] for r in read_jsonl(EVAL) if r.get("verdict") != "api_error"}  # 오류는 재시도
+    done = {r["id"] for r in read_jsonl(EVAL) if r.get("verdict") != "api_error"}  # errors are retried
     skip = done | set(selected_place_ids())
     todo = [r for r in pool if r["contentid"] not in skip]
-    # 대표사진 있는 곳 먼저 (사진 존재의 공짜 신호 — Type1 보장은 아님)
+    # Places with a representative photo first: a free signal that photos exist,
+    # though not that they are Type 1.
     todo = _interleave_by_area([r for r in todo if r.get("firstimage")]) \
          + _interleave_by_area([r for r in todo if not r.get("firstimage")])
     counter = _install_counter(budget)
@@ -139,9 +141,9 @@ def run_eval(budget: int) -> None:
                     continue
                 overview = (common.get("overview") or "").strip()
                 kogl1 = [g for g in gallery if g.get("cpyrhtDivCd") == "Type1"]
-                # 빌드 게이트(선택 페이지 3종+)를 그대로 반영 (교훈 #14, 2026-07-21):
-                # 운영시간류(usetime/restdate)와 지원류(infocenter/parking)가 둘 다 있어야
-                # openingHoursInfo·support 페이지가 생겨 optional_count 3을 채운다
+                # Mirrors the build gate: opening-hours fields and support fields must
+                # both be present, otherwise those two optional pages never appear and
+                # the entity cannot reach three optional pages.
                 has_hours = bool(intro.get("usetime") or intro.get("restdate"))
                 has_support = bool(intro.get("infocenter") or intro.get("parking"))
                 ok = (len(overview) >= 300 and len(kogl1) >= 3 and bool(r.get("addr1"))
@@ -171,10 +173,11 @@ def run_eval(budget: int) -> None:
 # ---------------------------------------------------------------------------
 
 def run_select(batch: str) -> None:
-    orig_ids = selected_place_ids()                      # append 전 순서 스냅샷
-    orig_set = set(orig_ids)                             # (2026-08-05 감사) 행마다 set 재구축 금지
+    orig_ids = selected_place_ids()                      # order before appending
+    orig_set = set(orig_ids)                             # built once, not per row
     passed = [r for r in read_jsonl(EVAL) if r["verdict"] == "pass" and r["id"] not in orig_set]
-    # 게이트 개정(#14) 이전에 평가된 통과분은 캐시된 intro로 재검증 (호출 0회)
+    # Passes recorded before the gate changed are re-checked against cached intro
+    # data, which costs no API calls.
     def _rich(r: dict[str, Any]) -> bool:
         if "has_hours" in r:
             return r["has_hours"] and r["has_support"]
@@ -196,8 +199,8 @@ def run_select(batch: str) -> None:
     lines = [f"  # --- 대량 확장 {batch} (전국 수확, Type1 게이트, docs/08) ---"]
     for r in picked:
         lines.append(f'  - "{r["id"]}"   # {r["name"]} ({r["region"]}) — Type1 {r["kogl1"]}장, 소개 {r["overview_chars"]}자')
-    # place 목록의 끝은 파일 끝이 아닐 수 있다(place_excluded 블록, 2026-07-21+).
-    # place_excluded 행과 그 머리 주석·빈 줄 앞에 삽입해야 목록이 깨지지 않는다.
+    # The place list does not always end at the file end: a place_excluded block may
+    # follow. Insert above that block and its leading comment, or the list breaks.
     all_lines = before.rstrip("\n").split("\n")
     cut = next((i for i, l in enumerate(all_lines) if l.startswith("place_excluded:")), len(all_lines))
     while cut > 0 and (all_lines[cut - 1].lstrip().startswith("#") or not all_lines[cut - 1].strip()):
@@ -205,7 +208,7 @@ def run_select(batch: str) -> None:
     tail = ([""] + all_lines[cut:]) if cut < len(all_lines) else []
     SELECTION.write_text("\n".join(all_lines[:cut] + lines + tail) + "\n", encoding="utf-8")
 
-    # GLN 순서 불변 assert: 기존 구간이 append 전과 완전히 같아야 함 (교훈 #11)
+    # GLNs are issued by position, so the existing prefix must be untouched.
     after_ids = selected_place_ids()
     assert after_ids[:n_before] == orig_ids and len(after_ids) == n_before + take, \
         "selection.yaml 기존 순서가 변형됨 — 중단"

@@ -1,10 +1,11 @@
-"""배치 전수 검증 — validate.py(7종)가 안 보는 사각을 커버한다 (7/20 임시 스크립트의 정식화).
+"""Whole-batch checks covering the blind spots of validate.py.
 
     python -m scripts.verify_batch
 
-검사: ① 두 트리(원본/변조본)의 잔재 폴더(entity-map에 없는 엔티티 디렉터리)
-② 변조 대상이 아닌 엔티티는 원본·변조본 페이지가 바이트 동일 (동형성)
-③ 변조 대상 팩트의 페이지는 두 트리가 실제로 다름 ④ manifest media 목록 = 실제 파일.
+1. Neither tree holds a folder that entity-map does not know about.
+2. Pages that were not overridden are byte-identical across the two trees.
+3. Pages that were overridden actually differ between them.
+4. Every media entry in the manifest exists on disk.
 """
 from __future__ import annotations
 
@@ -27,7 +28,7 @@ def main() -> None:
     slugs = {e.replace("/", "-") for e in entity_map}
     cf_root = BENCH_ROOT / "counterfactual"
 
-    # ① 잔재 폴더
+    # 1. leftover folders
     for root, label in ((BENCH_ROOT / "entities", "원본"), (cf_root / "entities", "변조본")):
         if not root.is_dir():
             continue
@@ -35,7 +36,7 @@ def main() -> None:
             if d.is_dir() and d.name not in slugs:
                 err(f"[1 잔재] {label} 트리에 정체불명 폴더: {d.name}")
 
-    # ②③ 변조본 동형성/발산
+    # 2+3. counterfactual tree: identical except where overridden
     ov_path = WORK_DIR / "counterfactual-overrides.jsonl"
     overridden_entities: dict[str, set[str]] = {}
     if ov_path.exists():
@@ -67,7 +68,7 @@ def main() -> None:
                 n_same += same
                 n_diff += not same
 
-    # ④ manifest media = 실제 파일
+    # 4. every manifest media entry exists on disk
     for entity, meta in manifest["entities"].items():
         slug = entity.replace("/", "-")
         for m in meta.get("media", []):

@@ -1,10 +1,11 @@
-"""배치 검수 리포트 자동 생성 — 사람이 "가볍게 확인"할 파일 하나를 만든다 (docs/08 §2.3).
+"""Build the one file a human actually reads after a batch.
 
     python -m scripts.bulk.make_review --batch day-03
 
-출력: work/expansion/<batch>/entity-review.md
-자동 검출: 채굴 팩트 표기 상이(값이 원문에 문자 그대로 없음), 라이선스 UNVERIFIED 미디어,
-이미지 3장 미만, 소개글 짧음, 카테고리·지역 편중, 남은 <br>/플레이스홀더 잔재.
+Writes work/expansion/<batch>/entity-review.md listing only the exceptions:
+mined facts whose value is not literally in the source text, media with an
+unverified licence, entities with fewer than three images, short overviews,
+category or region skew, and leftover <br> or placeholder text.
 """
 from __future__ import annotations
 
@@ -35,7 +36,7 @@ def main() -> None:
     for f in facts:
         by_ent.setdefault(f["entity"], []).append(f)
 
-    # 자동 검출
+    # automatic findings
     mismatch, junk, brs, thin_media, unverified = [], [], [], [], []
     for f in facts:
         src = f.get("source") or {}
@@ -78,7 +79,7 @@ def main() -> None:
     section("잔재 — <br>/플레이스홀더 (0이어야 정상)",
             [f"- {f['fact_id']}: {str(f['value'])[:60]}" for f in brs + junk])
 
-    # 분포
+    # distribution
     food = [e for e in ents if em.get(e, {}).get("class") == "food"]
     place = [e for e in ents if em.get(e, {}).get("class") == "place"]
     pharma = [e for e in ents if em.get(e, {}).get("class") == "pharma"]
@@ -87,7 +88,7 @@ def main() -> None:
         cand_pharma = {r["id"]: r for r in read_jsonl(WORK_DIR / "candidates-pharma.jsonl")}
         makers = Counter(str(cand_pharma.get(em[e]["source_id"], {}).get("manufacturer", "?"))
                          for e in pharma)
-        # 복합제는 "A, B AND C" 꼴 — 성분 단위로 쪼개야 클러스터가 보인다
+        # Combination products read "A, B AND C"; split them to see real clusters.
         gens = Counter(
             g.strip() for e in pharma
             for g in str(cand_pharma.get(em[e]["source_id"], {}).get("generic", ""))
@@ -97,8 +98,8 @@ def main() -> None:
                  + ", ".join(f"{k[:30]}×{v}" for k, v in gens.most_common() if v >= 2))
     cand_food = {r["id"]: r for r in read_jsonl(WORK_DIR / "candidates-food.jsonl")}
     cand_place = {r["id"]: r for r in read_jsonl(WORK_DIR / "candidates-place.jsonl")}
-    # 첫 태그는 OFF 최상위 우산(plant-based 등)이라 착시가 큼(2026-07-29) —
-    # 우산을 건너뛴 첫 세부 태그로 집계해야 실제 편중이 보인다.
+    # The first tag is an umbrella category and hides the real distribution;
+    # count the first specific tag after it instead.
     _umbrella = {"plant-based-foods-and-beverages", "plant-based-foods",
                  "beverages-and-beverages-preparations", "fermented-foods"}
 

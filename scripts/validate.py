@@ -21,7 +21,7 @@ from scripts.common.config import BENCH_ROOT, REPO_ROOT, SCHEMA_DIR, WORK_DIR
 from scripts.common.identifiers import is_valid
 
 LINKSET_SCHEMA = json.loads((SCHEMA_DIR / "linkset.schema.json").read_text(encoding="utf-8"))
-_LINKSET_VALIDATOR = validator_for(LINKSET_SCHEMA)(LINKSET_SCHEMA)  # 재컴파일 방지 (감사 F5: 33초→4초)
+_LINKSET_VALIDATOR = validator_for(LINKSET_SCHEMA)(LINKSET_SCHEMA)  # compiled once: 33 s -> 4 s
 
 #: predicates whose value legitimately appears on several pages (titles, prose containers)
 LEAK_EXEMPT = {"product_name", "place_name", "overview", "located_in_region", "categories"}
@@ -125,7 +125,7 @@ def main() -> None:
             for other_name, other_text in ent_pages.items():
                 if other_name != page_name and needle in other_text:
                     ambiguous.append({"fact_id": f["fact_id"], "needle": needle, "also_on": other_name})
-    # (2026-08-05 감사 F12) 3.9만 건을 stdout에 한 줄씩 찍던 것 → 요약 1줄 (상세는 파일에)
+    # Summarised to one line; the per-fact detail goes to the file.
     (WORK_DIR / "qa-ambiguous-facts.json").write_text(
         json.dumps(ambiguous, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"  [5 unique] 모호 팩트 {len(ambiguous)}건 -> work/qa-ambiguous-facts.json (QA 골드 제외 목록)")
@@ -169,7 +169,7 @@ def main() -> None:
     if _decode:
         for entity, meta in entity_map.items():
             if meta.get("class") != "place":
-                continue  # EUC-KR은 place T4 페이지뿐 (감사 F11: 9.4만 페이지 재읽기 → place만)
+                continue  # only place T4 pages are EUC-KR
             for p in (BENCH_ROOT / "entities" / entity.replace("/", "-") / "pages").glob("*.html"):
                 raw = p.read_bytes()
                 if b"euc-kr" in raw[:200]:

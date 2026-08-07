@@ -1,21 +1,21 @@
-"""openFDA 벌크 덤프 수확기 — 무엇을 받을지는 docs/18 §8.0, 필드 상세는 docs/19.
+"""openFDA bulk dump harvester. What to fetch is decided in docs/18 §8.0;
+per-field detail is in docs/19.
 
-    python -m scripts.bulk.openfda_download plan       # 뭘 받을지·용량부터 확인 (네트워크 최소)
-    python -m scripts.bulk.openfda_download download   # 실제로 받기 (이어받기·동시 4)
-    python -m scripts.bulk.openfda_download verify     # 받은 zip이 성한지 확인 (가끔만)
+    python -m scripts.bulk.openfda_download plan       # what and how much
+    python -m scripts.bulk.openfda_download download   # fetch (resumable, 4 at a time)
+    python -m scripts.bulk.openfda_download verify     # zip integrity + record counts
 
-    # 일부만:  --only ndc,nsde        # 다시 받기: --force
+    # subset: --only ndc,nsde        # re-fetch: --force
 
-왜 API가 아니라 벌크인가: openFDA는 `skip`이 25,000에서 막혀 전량 수확이 API로는
-불가능하다. 게다가 벌크는 한 번 받아두면 재실행이 네트워크 없이 결정적으로 돌아간다
-(OFF 덤프와 같은 방식).
+Bulk rather than the API: `skip` caps at 25,000, so a full harvest is impossible
+over HTTP, and a local dump makes every later run deterministic and offline.
 
-docs/14의 교훈을 그대로 적용했다:
-  * 패턴 B(안 바뀐 건 다시 안 함) — 이미 받은 파일은 크기를 대조해 건너뛴다.
-    기존 라벨 덤프 1.8GB를 재다운로드하지 않는 것이 이 스크립트의 최대 절약이다.
-  * 네트워크 기다림은 겹친다 — 동시 4개. 파일이 수백 MB라 8개는 과하고,
-    download.open.fda.gov는 공공 서버라 예의도 필요하다.
-  * 죽은 주소는 즉시 포기 — 공용 fetch 층이 이미 그렇게 한다(404는 재시도 안 함).
+Following docs/14:
+  * skip what is already on disk by comparing sizes — the existing 1.8 GB label
+    dump is the single biggest saving here
+  * 4 concurrent downloads, not 8: these are hundred-megabyte files and
+    download.open.fda.gov is a public server
+  * dead URLs fail fast — the shared fetch layer already refuses to retry 404s
 """
 from __future__ import annotations
 
@@ -32,29 +32,29 @@ MANIFEST_URL = "https://api.fda.gov/download.json"
 MANIFEST_CACHE = DATA_DIR / "raw" / "openfda" / "download-manifest.json"
 DUMP_ROOT = DATA_DIR / "dump"
 
-#: 받을 것 — 결정 근거는 docs/18 §8.0. (분야, 데이터셋): 왜 받는가
+#: (category, dataset): why we take it. Rationale in docs/18 §8.0.
 DATASETS: dict[tuple[str, str], str] = {
-    ("drug", "label"):       "라벨 본문·Drug Facts·set_id — 주력",
-    ("drug", "ndc"):         "함량·포장 계층·식별자 (라벨보다 충실: UNII 80%/RxCUI 60%)",
-    ("other", "nsde"):       "NDC 10↔11 변환 공식 정답표 (자체 구현 불가)",
-    ("other", "substance"):  "GSRS 허브 — UNII 하나로 ChEBI·MeSH·RxCUI·CAS·ATC",
-    ("drug", "drugsfda"):    "승인 이력 + 라벨 개정 PDF 링크 (시간축 보강)",
-    ("drug", "enforcement"): "리콜 — gs1:recallStatus와 직결",
-    ("drug", "orangebook"):  "제네릭↔오리지널 관계, TE 코드",
-    ("other", "unii"):       "UNII↔이름 사전",
-    ("drug", "shortages"):   "공급 부족",
+    ("drug", "label"):       "label text, Drug Facts sections, set_id — the main source",
+    ("drug", "ndc"):         "strength, package hierarchy, richer identifiers than the labels",
+    ("other", "nsde"):       "authoritative NDC 10<->11 conversion table",
+    ("other", "substance"):  "GSRS hub — one UNII reaches ChEBI, MeSH, RxCUI, CAS, ATC",
+    ("drug", "drugsfda"):    "approval history and links to revised label PDFs",
+    ("drug", "enforcement"): "recalls",
+    ("drug", "orangebook"):  "generic-to-originator relations, TE codes",
+    ("other", "unii"):       "UNII to substance-name lookup",
+    ("drug", "shortages"):   "supply shortages",
 }
 
-#: 일부러 안 받는 것 — plan에 이유와 함께 보여준다 (나중에 "왜 없지?"를 막기 위해)
+#: Deliberately not fetched. Listed so `plan` can answer "why is this missing?".
 SKIPPED: dict[tuple[str, str], str] = {
-    ("drug", "event"):  "FAERS: MedDRA 재배포 금지 + 111GB + 인과관계 없음 (docs/18 §8.0.1)",
-    ("device", "udi"):  "의약품이 아님 — GTIN 설계 참고용으로만",
+    ("drug", "event"):  "FAERS: MedDRA cannot be redistributed, 111 GB, no causality",
+    ("device", "udi"):  "not a drug — kept only as a reference for GTIN modelling",
 }
 
-#: 이미 받아둔 라벨 덤프가 여기 있다. 같은 폴더를 가리켜야 1.8GB를 다시 받지 않는다.
+#: The label dump already lives here; pointing at it avoids re-fetching 1.8 GB.
 LEGACY_DIRS: dict[tuple[str, str], str] = {("drug", "label"): "openfda-label"}
 
-#: 크기 비교 허용 오차. 매니페스트의 size_mb는 소수 둘째 자리까지라 1%면 충분하다.
+#: size_mb in the manifest has two decimals, so 1% is a generous tolerance.
 SIZE_TOLERANCE = 0.01
 
 
@@ -63,7 +63,7 @@ def dest_dir(category: str, dataset: str) -> Path:
 
 
 class Part:
-    """받을 파일 한 개. 매니페스트 한 줄 + 우리가 저장할 위치."""
+    """One downloadable file: a manifest row plus where we keep it."""
 
     def __init__(self, category: str, dataset: str, row: dict) -> None:
         self.category, self.dataset = category, dataset
@@ -77,18 +77,18 @@ class Part:
         return f"{self.category}/{self.dataset}"
 
     def status(self) -> str:
-        """받아야 하나? — 'new'(없음) / 'ok'(크기 일치) / 'differs'(있는데 다름)"""
+        """'new' (absent) / 'ok' (size matches) / 'differs' (present but stale)."""
         if not self.path.exists():
             return "new"
         actual = self.path.stat().st_size
         if not self.expected_bytes:
-            return "ok"                       # 매니페스트에 크기가 없으면 존재만으로 인정
+            return "ok"
         gap = abs(actual - self.expected_bytes) / self.expected_bytes
         return "ok" if gap <= SIZE_TOLERANCE else "differs"
 
 
 def load_parts(only: set[str] | None) -> tuple[list[Part], dict]:
-    """매니페스트를 1회 받아(디스크 캐시) 받을 파일 목록으로 편다."""
+    """Read the manifest once (disk-cached) and flatten it into files to fetch."""
     manifest = cached_json(MANIFEST_CACHE, MANIFEST_URL)
     results = manifest.get("results") or {}
     parts: list[Part] = []
@@ -98,7 +98,7 @@ def load_parts(only: set[str] | None) -> tuple[list[Part], dict]:
             continue
         node = (results.get(category) or {}).get(dataset)
         if not node:
-            print(f"  ! 매니페스트에 {category}/{dataset} 없음 — 건너뜀")
+            print(f"  ! {category}/{dataset} missing from the manifest — skipped")
             continue
         meta[(category, dataset)] = {
             "export_date": node.get("export_date"),
@@ -121,8 +121,8 @@ def cmd_plan(only: set[str] | None) -> None:
         by_dataset.setdefault((p.category, p.dataset), []).append(p)
 
     todo_bytes = have_bytes = 0
-    print(f"{'데이터셋':<22}{'파티션':>7}{'레코드':>12}{'용량':>11}{'상태':>22}")
-    print("─" * 76)
+    print(f"{'dataset':<22}{'parts':>7}{'records':>12}{'size':>11}{'status':>22}")
+    print("-" * 76)
     for key, group in by_dataset.items():
         size = sum(p.expected_bytes for p in group)
         recs = meta.get(key, {}).get("total_records") or sum(p.records for p in group)
@@ -131,19 +131,19 @@ def cmd_plan(only: set[str] | None) -> None:
             counts[p.status()] += 1
         todo_bytes += sum(p.expected_bytes for p in group if p.status() != "ok")
         have_bytes += sum(p.expected_bytes for p in group if p.status() == "ok")
-        state = "받아야 함" if counts["new"] else "이미 있음"
+        state = "to fetch" if counts["new"] else "have it"
         if counts["differs"]:
-            state = f"{counts['differs']}개 크기 다름(구버전?)"
+            state = f"{counts['differs']} stale"
         print(f"{'/'.join(key):<22}{len(group):>7}{recs:>12,}{_mb(size):>11}{state:>22}")
 
-    print("─" * 76)
-    print(f"받을 용량 {_mb(todo_bytes)}  /  이미 보유 {_mb(have_bytes)}")
+    print("-" * 76)
+    print(f"to fetch {_mb(todo_bytes)}  /  already have {_mb(have_bytes)}")
     if any(p.status() == "differs" for p in parts):
-        print("\n※ '크기 다름'은 로컬이 더 오래된 export일 때 나온다. 갱신하려면 --force.")
-    print("\n일부러 안 받는 것:")
+        print("\nStale means the local copy is an older export. Use --force to refresh.")
+    print("\nNot fetched on purpose:")
     for (cat, ds), why in SKIPPED.items():
-        print(f"  · {cat}/{ds:<12} {why}")
-    print(f"\n저장 위치: {DUMP_ROOT}")
+        print(f"  - {cat}/{ds:<12} {why}")
+    print(f"\nStored under: {DUMP_ROOT}")
 
 
 def cmd_download(only: set[str] | None, force: bool, workers: int) -> None:
@@ -151,64 +151,63 @@ def cmd_download(only: set[str] | None, force: bool, workers: int) -> None:
     parts, meta = load_parts(only)
     todo = [p for p in parts if force or p.status() != "ok"]
     if not todo:
-        print("받을 것 없음 — 전부 최신이다.")
+        print("nothing to fetch — everything is current.")
         return
 
     total = sum(p.expected_bytes for p in todo)
-    print(f"{len(todo)}개 파일 / 약 {_mb(total)} — 동시 {workers}개로 받는다\n")
+    print(f"{len(todo)} files / about {_mb(total)} — {workers} at a time\n")
     done = {"n": 0, "bytes": 0}
     failed: list[tuple[Part, str]] = []
 
     def fetch(p: Part) -> None:
         try:
             size = stream_to_file(p.url, p.path)
-        except Exception as exc:                          # noqa: BLE001 — 한 파일 실패가 전체를 죽이지 않는다
+        except Exception as exc:            # noqa: BLE001 — one bad file must not stop the rest
             failed.append((p, repr(exc)))
-            print(f"  ✗ {p.name} {p.path.name}: {exc}", flush=True)
+            print(f"  x {p.name} {p.path.name}: {exc}", flush=True)
             return
         done["n"] += 1
         done["bytes"] += size
-        print(f"  ✓ [{done['n']}/{len(todo)}] {p.name:<18} {p.path.name}  {_mb(size)}", flush=True)
+        print(f"  o [{done['n']}/{len(todo)}] {p.name:<18} {p.path.name}  {_mb(size)}", flush=True)
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         list(pool.map(fetch, todo))
 
-    print(f"\n완료 {done['n']}/{len(todo)} ({_mb(done['bytes'])})")
+    print(f"\ndone {done['n']}/{len(todo)} ({_mb(done['bytes'])})")
     for key, m in meta.items():
-        print(f"  {'/'.join(key):<22} export {m['export_date']}  {m['total_records']:,}건")
+        print(f"  {'/'.join(key):<22} export {m['export_date']}  {m['total_records']:,} records")
     if failed:
-        print(f"\n실패 {len(failed)}건 — 같은 명령을 다시 실행하면 실패분만 이어받는다:")
+        print(f"\n{len(failed)} failed — re-run the same command to resume just those:")
         for p, err in failed:
-            print(f"  · {p.path.name}: {err}")
+            print(f"  - {p.path.name}: {err}")
         raise SystemExit(1)
 
 
 def cmd_verify(only: set[str] | None) -> None:
-    """zip이 열리는지 + 안에 든 레코드 수가 매니페스트와 맞는지.
+    """Check each zip opens and holds as many records as the manifest promised.
 
-    상시 경로에는 넣지 않는다 — docs/14 패턴 C(일회성 점검이 상시 업무로 눌러앉는 것)를
-    피하려고 별도 명령으로 뺐다. 다운로드 직후·의심될 때만 돌린다.
+    Kept out of the download path on purpose: a one-off check that moves into the
+    hot path is exactly the pattern docs/14 warns about.
     """
     parts, _ = load_parts(only)
     bad = 0
     for p in parts:
         if not p.path.exists():
-            print(f"  - {p.path.name}: 없음")
+            print(f"  - {p.path.name}: absent")
             continue
         try:
             with zipfile.ZipFile(p.path) as z:
                 inner = [n for n in z.namelist() if n.endswith(".json")]
                 with z.open(inner[0]) as fh:
                     n = len(json.load(fh).get("results") or [])
-        except Exception as exc:                          # noqa: BLE001
-            print(f"  ✗ {p.path.name}: 열리지 않음 — {exc}")
+        except Exception as exc:            # noqa: BLE001
+            print(f"  x {p.path.name}: will not open — {exc}")
             bad += 1
             continue
-        mark = "✓" if (not p.records or n == p.records) else "≠"
-        if mark == "≠":
-            bad += 1
-        print(f"  {mark} {p.path.name:<44} {n:>9,}건 (매니페스트 {p.records:,})")
-    print(f"\n이상 {bad}건")
+        ok = not p.records or n == p.records
+        bad += not ok
+        print(f"  {'o' if ok else 'x'} {p.path.name:<44} {n:>9,} (manifest {p.records:,})")
+    print(f"\n{bad} problem(s)")
     if bad:
         raise SystemExit(1)
 
@@ -218,9 +217,9 @@ def main() -> None:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("command", choices=["plan", "download", "verify"])
     ap.add_argument("--only", default=None,
-                    help="데이터셋 이름 쉼표 구분 (예: ndc,nsde). 생략하면 전부")
-    ap.add_argument("--force", action="store_true", help="이미 있어도 다시 받는다")
-    ap.add_argument("--workers", type=int, default=4, help="동시 다운로드 수 (기본 4)")
+                    help="comma-separated dataset names, e.g. ndc,nsde (default: all)")
+    ap.add_argument("--force", action="store_true", help="re-fetch even if present")
+    ap.add_argument("--workers", type=int, default=4, help="concurrent downloads (default 4)")
     a = ap.parse_args()
 
     only = {s.strip() for s in a.only.split(",")} if a.only else None

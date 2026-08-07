@@ -1,14 +1,14 @@
-"""대량 확장 통합 실행기 (docs/08 §8) — 매일 이것만 실행하면 된다.
+"""Front end for the bulk expansion loop — the only command a daily run needs.
 
-    python -m scripts.bulk_expand food --target 200 --batch day-03    # 식품 수확+선별
-    python -m scripts.bulk_expand place --budget 700 --batch day-03   # 장소 수확+선별 (한도 인지)
-    python -m scripts.bulk_expand facts                               # 팩트 추출만 (라운드마다)
-    python -m scripts.bulk_expand finalize --batch day-03             # 추출→빌드×2→검증→검수 리포트
+    python -m scripts.bulk_expand food  --target 200 --batch day-03   # harvest + select
+    python -m scripts.bulk_expand place --budget 700 --batch day-03   # quota-aware
+    python -m scripts.bulk_expand facts                               # extraction only
+    python -m scripts.bulk_expand finalize --batch day-03             # extract, build x2, validate, review
 
-food/place는 독립적으로 하루 몇 번이든 안전(캐시·이어달리기).
-2026-08-04 사용자 결정: 라운드마다는 facts까지만 진행하고, 빌드·검증은 코퍼스 마감 시
-finalize 1회로 몰아서(탈락자는 그때 제외). 빌드는 엔티티 단위 오류 격리됨(BUILD FAIL 보고).
-권장: 2~3라운드마다 finalize를 체크포인트로 한 번씩 돌려 문제가 쌓이는 것을 방지.
+food and place are independent and safe to run repeatedly: both cache and resume.
+A round normally stops after `facts`; building and validating are batched into one
+`finalize` when the corpus closes, which is also where gate failures are dropped.
+Run finalize as a checkpoint every few rounds so problems cannot pile up.
 """
 from __future__ import annotations
 
@@ -41,8 +41,8 @@ def main() -> None:
         run("scripts.extract_facts")
         print("\nfacts 완료 — 빌드·검증·검수는 코퍼스 마감(또는 체크포인트) 때 finalize로 실행")
     else:
-        # 2026-07-29 사용자 결정: VLM 영양라벨 검증은 일일 배치에서 제외 —
-        # 결과 소비자가 gen_qa뿐이라 QA 마일스톤 직전 전체 1회로 미룬다.
+        # The VLM nutrition-label check is deliberately absent: gen_qa is its only
+        # consumer, so it runs once before a QA milestone rather than every batch.
         run("scripts.extract_facts")
         run("scripts.build_fixtures")
         run("scripts.build_fixtures", "--overrides", "work/counterfactual-overrides.jsonl")

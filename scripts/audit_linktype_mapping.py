@@ -1,10 +1,10 @@
-"""extract_facts.py 규칙표의 linktype 매핑을 GS1 정의를 아는 LLM으로 전수 감사한다.
+"""Audit every linktype mapping rule against a model that knows the GS1 vocabulary.
 
     python -m scripts.audit_linktype_mapping
 
-매핑 자체는 규칙표(결정적)가 정답이지만, 규칙이 GS1 의미론과 어긋난 채 조용히 굳는 것을
-막기 위한 검증 단계다 (packaging→consumerHandlingStorageInfo 오배치가 계기 — docs/06 부록 A).
-LLM은 지적만 하고 결정은 사람이 한다. 결과: work/notes/linktype-audit.md + 콘솔 요약.
+The rule table stays authoritative; this only stops a rule from quietly drifting
+away from GS1 semantics, which is how packaging ended up on the storage page.
+The model raises questions, a human decides. Writes work/notes/linktype-audit.md.
 """
 from __future__ import annotations
 
@@ -38,7 +38,8 @@ SYSTEM = (
     'Return ONLY JSON: {"rows": [{"predicate": "...", "best": "...", '
     '"reason": "<one short sentence>"}]} — one row per input, same order.'
 )
-# 앵커링 방지: LLM에게는 현재 매핑을 숨기고(블라인드) 분류시킨 뒤 코드에서 대조한다.
+# Blind audit: the model never sees our current mapping, so it cannot anchor on
+# it. The comparison happens in code afterwards.
 
 NUTRIENT_ROW = re.compile(r"_(100g|serving)$")
 

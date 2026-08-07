@@ -1,16 +1,18 @@
-"""대량 확장 — OFF 식품 수확기 (docs/08 §2.1). API 호출 0회, 덤프 전용.
+"""Bulk expansion — Open Food Facts harvester. Dump only, zero API calls.
 
-    python -m scripts.bulk.off_harvest scan                  # [1] CSV 전량 스캔 -> 후보
-    python -m scripts.bulk.off_harvest snapshot              # [2] JSONL 순회: lang=en + 스냅샷 + 원본 창고
-    python -m scripts.bulk.off_harvest select --target 200 --batch day-03   # [3~5] 게이트->선별->append
-    python -m scripts.bulk.off_harvest all --target 200 --batch day-03      # 전부 순서대로
+    python -m scripts.bulk.off_harvest scan                                # CSV sweep -> candidates
+    python -m scripts.bulk.off_harvest snapshot                            # JSONL pass: lang=en, snapshots, warehouse
+    python -m scripts.bulk.off_harvest select --target 200 --batch day-03  # gate -> select -> append
+    python -m scripts.bulk.off_harvest all --target 200 --batch day-03
 
-교훈 게이트 (docs/08 §5): 영어권 6개국 프리필터 + JSONL lang=en 최종판정(#1),
-prepared 제외 영양 8칸(#2), en:null 카테고리(#3), (브랜드+제품명) 중복(#4),
-이미지 HEAD 생존 확인(#12). 스냅샷은 API와 같은 봉투로 저장 — 이후 단계 무수정.
-2026-07-29: en:complete 상태 필터 제거 — 실사용 필드(라벨 이미지·성분·영양 8칸)를
-직접 검사하므로 중복 보험이었고, 통과분의 99%를 잘라먹던 주범. 대신 물량 캡으로
-스캔 수 상위 CAND_CAP개만 후보로 저장 (스냅샷 파일 수·창고 용량 통제).
+Gates, in order: an English-market pre-filter with lang=en as the final say,
+7+ as-sold nutrient values, a usable category, no duplicate brand + product name,
+and a live nutrition photo. Snapshots are written in the same envelope the API
+returned, so nothing downstream has to know where a record came from.
+
+The old en:complete status filter is gone: it duplicated checks we already make
+on the fields we actually use, and it discarded 99% of otherwise-valid products.
+Volume is capped by CAND_CAP instead, keeping the most-scanned candidates.
 """
 from __future__ import annotations
 
@@ -35,8 +37,9 @@ from scripts.select_entities import score_food
 BULK_DIR = WORK_DIR / "bulk"
 CSV_CAND = BULK_DIR / "off-csv-candidates.jsonl"
 SHORTLIST = BULK_DIR / "off-shortlist.jsonl"
-#: 매칭된 후보의 덤프 원본 줄 전체를 보존하는 창고 — 이후 필드 추가는 13GB 재스캔
-#: 대신 이 파일에서 꺼낸다. 파이프라인은 읽지 않음 (data/raw 스냅샷이 계속 입력).
+#: Warehouse holding the full dump line of every matched candidate, so adding a
+#: field later reads this instead of re-scanning 13 GB. The pipeline never reads
+#: it — data/raw snapshots remain the input.
 RAW_MATCHED = BULK_DIR / "off-raw-matched.jsonl.gz"
 SELECTION = WORK_DIR / "selection.yaml"
 CAND_FOOD = WORK_DIR / "candidates-food.jsonl"
@@ -44,14 +47,14 @@ CAND_FOOD = WORK_DIR / "candidates-food.jsonl"
 CSV_DUMP = DATA_DIR / "dump" / "en.openfoodfacts.org.products-20260720.csv.gz"
 JSONL_DUMP = DATA_DIR / "dump" / "openfoodfacts-products-20260720.jsonl.gz"
 
-#: 영어권 프리필터 (countries_en 부분 문자열) — 최종 판정은 JSONL lang=en
+#: English-market pre-filter; the label language is finally decided by lang=en.
 COUNTRIES = ["United States", "United Kingdom", "Ireland", "Australia", "Canada", "New Zealand"]
 
-#: 후보 상한 — 품질 필터가 아니라 물량 캡. 스캔 수(unique_scans_n) 상위만 남긴다.
-#: 2026-07-31: 5000 풀 소진(누적 선정 4,568)으로 10000 상향 — "멈출 때까지 추출" 지시.
-CAND_CAP = 80000  # 2026-08-05 저녁: 40000 풀 소진(r87에서 0개, 누적 4.9만) → 필터 통과 전체 커버(마지막 상향)
+#: Volume cap, not a quality filter: keep the most-scanned candidates only.
+#: Raise it when the pool runs dry and re-scan.
+CAND_CAP = 80000  # covers every product passing the basic filters
 
-#: 스냅샷에 담을 필드 (off_client.PRODUCT_FIELDS와 동일 집합 + lang)
+#: Fields kept in a snapshot: off_client.PRODUCT_FIELDS plus lang.
 SNAPSHOT_FIELDS = [
     "code", "lang", "product_name", "brands", "categories_tags", "countries_tags",
     "nutriments", "serving_size", "nutrition_data_per",
@@ -87,7 +90,7 @@ def selected_food_ids() -> list[str]:
 
 def run_scan() -> None:
     csv.field_size_limit(10_000_000)
-    # 바코드는 소스마다 0-패딩이 달라서(CSV 14자리 vs selection 8/13자리) 정규화 대조
+    # Sources pad barcodes differently (CSV 14 digits vs selection 8/13), so compare normalised.
     existing = {c.lstrip("0") for c in selected_food_ids()}
     total, out = 0, []
     with gzip.open(CSV_DUMP, "rt", encoding="utf-8", errors="replace", newline="") as f:
@@ -132,7 +135,7 @@ def run_scan() -> None:
 # [2] JSONL pass: lang=en + snapshot
 # ---------------------------------------------------------------------------
 
-#: 구형 nutriments 키로 변환할 영양소 (extract_facts.NUTRIMENT_KEYS와 동일 집합)
+#: Nutrients converted back to the legacy nutriments keys.
 _NUTRIENT_IDS = ["energy-kcal", "fat", "saturated-fat", "carbohydrates", "sugars",
                  "fiber", "proteins", "salt", "sodium"]
 
@@ -142,7 +145,7 @@ def _round(v: Any) -> Any:
 
 
 def _legacy_nutriments(rec: dict[str, Any]) -> dict[str, Any]:
-    """신형 nutrition 구조 → 구형 nutriments 키 (as-sold, 라벨 실측만)."""
+    """New nutrition structure -> legacy nutriments keys, as-sold and label-measured only."""
     out: dict[str, Any] = {}
     nut = rec.get("nutrition") or {}
     agg = (nut.get("aggregated_set") or {}).get("nutrients") or {}
@@ -165,7 +168,7 @@ def run_snapshot() -> None:
     cand = {r["code"]: r for r in read_jsonl(CSV_CAND)}
     if not cand:
         sys.exit("먼저 scan을 실행하세요 (후보 없음)")
-    # JSONL 각 줄은 {"_id":"<13자리 0패딩 바코드>", ...}로 시작 — 패딩 차이는 정규화로 흡수
+    # Every JSONL line starts {"_id":"<13-digit zero-padded barcode>", ...}.
     wanted_norm = {c.lstrip("0") or "0": c for c in cand}
     id_re = re.compile(r'^\{"_id":"(\d+)"')
     found: dict[str, str] = {}          # csv code -> lang
@@ -187,21 +190,21 @@ def run_snapshot() -> None:
                 continue
             lang = rec.get("lang") or "?"
             found[code] = lang
-            # 창고에는 lang 무관하게 매칭 전원 보존 (원본 줄 그대로)
+            # The warehouse keeps every match regardless of language, verbatim.
             raw_out.write(line if line.endswith("\n") else line + "\n")
             if lang != "en":
                 continue
             product = {k: rec[k] for k in SNAPSHOT_FIELDS if k in rec}
-            # 덤프는 구형 nutriments가 비어 있음(신형 nutrition 구조로 이전, 2026-07-21 발견)
-            # — 라벨 실측(source=packaging)만 구형 키로 변환, 추정치(estimate)는 배제
+            # The dump moved to a new nutrition structure and leaves the legacy
+            # nutriments empty. Convert only label-measured values (source=packaging);
+            # estimates are excluded.
             product["nutriments"] = _legacy_nutriments(rec)
-            # 덤프 레코드에는 계산된 image_*_url이 없음 — CSV 값으로 보충
+            # Dump records carry no derived image_*_url; fill them from the CSV.
             for k in ("image_front_url", "image_ingredients_url", "image_nutrition_url"):
                 if not product.get(k) and cand[code].get(k):
                     product[k] = cand[code][k]
             target = RAW_OFF_DIR / f"product-{code}.json"
-            # (2026-08-05 감사 #7) "영양 빈 스냅샷 치유"는 일회성 보정 완료로 제거 —
-            # 기존 파일(API 시절 포함)은 덮지 않는다.
+            # Existing snapshots are never overwritten.
             if not target.exists():
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text(json.dumps({"code": code, "product": product, "status": 1},
@@ -222,7 +225,7 @@ def run_snapshot() -> None:
 def _head_alive(client: httpx.Client, url: str) -> bool:
     try:
         r = client.head(url, follow_redirects=True, timeout=10)
-        if r.status_code == 405:            # HEAD 미지원 서버는 GET 1바이트
+        if r.status_code == 405:            # server refuses HEAD; ask for one byte
             r = client.get(url, headers={"Range": "bytes=0-0"}, timeout=10)
         return r.status_code < 400
     except httpx.HTTPError:
@@ -239,15 +242,15 @@ def run_select(target: int, batch: str) -> None:
     if not shortlist:
         sys.exit("먼저 snapshot을 실행하세요")
     existing_ids = selected_food_ids()
-    # (브랜드+제품명) 정규화 중복 세트 — 기존 스냅샷 기준 (교훈 #4: 브랜드 다르면 동명 허용).
-    # 2026-08-05 감사 #1: 매 라운드 스냅샷 1.9만 파일 재읽기 → 코드→키 캐시로 증분화.
-    # 키 산출식은 종전과 동일 (candidates 파일로 대체는 이름 7% 불일치 실측으로 기각).
+    # Dedup keys of already-selected products, normalised (brand + product name;
+    # the same name under a different brand is allowed). Cached code->key so a round
+    # does not re-read 19k snapshot files.
     cache_p = BULK_DIR / "seen-names-cache.json"
     key_cache: dict[str, list[str]] = {}
     if cache_p.exists():
         try:
             key_cache = json.loads(cache_p.read_text(encoding="utf-8"))
-        except Exception:  # noqa: BLE001 — 캐시 깨지면 스냅샷 전체 재읽기로 자연 강등
+        except Exception:  # noqa: BLE001 — a broken cache just means reading them all
             key_cache = {}
     seen_names: set[tuple[str, str]] = set()
     cache_dirty = False
@@ -267,28 +270,27 @@ def run_select(target: int, batch: str) -> None:
         cache_p.write_text(json.dumps(key_cache, ensure_ascii=False), encoding="utf-8")
 
     graded = []
-    # 2026-08-05: 정규화 집합을 루프 밖에서 1회 구축 — 안에서 만들면 후보×기선정(16k×12k)
-    # 곱이 되어 수 분을 태운다 (감사에서 발견된 O(n²))
+    # Build the normalised set once. Building it inside the loop makes this
+    # candidates x already-selected, which costs minutes.
     existing_norm = {c.lstrip("0") for c in existing_ids}
     for r in shortlist:
         code = r["code"]
         if code.lstrip("0") in existing_norm:
-            continue                                     # 패딩 차이 방어 — 스냅샷 읽기 전에 먼저
+            continue                                     # padding guard, before any file read
         try:
             p = _snapshot_product(code)
         except FileNotFoundError:
             continue
         cats = p.get("categories_tags") or []
         if "en:null" in cats:
-            continue                                     # 교훈 #3
-        # 교훈 #2: as-sold 라벨 영양 7칸+ — prepared(조리 후) 키는 세지 않는다.
-        # (day-01 시절 API 캐시가 남아 있는 제품은 스냅샷이 API 형식이라 prepared 키 존재 가능)
+            continue                                     # unusable category
+        # Needs 7+ as-sold nutrient values; prepared (after cooking) keys do not count.
         n100 = [k for k in (p.get("nutriments") or {}) if k.endswith("_100g") and "prepared" not in k]
         if len(n100) < 7:
             continue
         key = (_norm((p.get("brands") or "").split(",")[0]), _norm(p.get("product_name") or ""))
         if key in seen_names or not key[1]:
-            continue                                     # 교훈 #4
+            continue                                     # duplicate brand + name
         graded.append({**r, "score": sum(score_food(p).values()), "score_parts": score_food(p),
                        "categories": (p.get("categories_tags") or [])[:4],
                        "allergens": p.get("allergens_tags") or [], "_key": key, "_p": p})
@@ -297,15 +299,15 @@ def run_select(target: int, batch: str) -> None:
 
     picked, dead = [], 0
     picked_keys: set[tuple[str, str]] = set()
-    # 2026-08-04: 생존 확인을 동시 8개로(개당 2.4초 → 라운드 20분이 병목이었음).
-    # 확인(HEAD)만 병렬이고 판정·기록은 순위 순서대로 순차 소비 — 결과는 순차판과 동일.
-    # 예의는 per-요청 sleep 대신 동시 8개 상한으로 유지.
+    # Liveness checks run 8 at a time; only the HEAD requests are concurrent, and
+    # results are consumed in rank order, so selection matches the sequential version.
+    # The concurrency cap replaces a per-request sleep.
     CHUNK = 32
 
     def _probe(r: dict) -> tuple[dict, bool, list[str]]:
         p = r["_p"]
         if not _head_alive(client, p["image_nutrition_url"]):
-            return r, False, []                           # 영양라벨은 필수 (교훈 #12)
+            return r, False, []                           # the nutrition photo is mandatory
         deadf = [k for k in ("image_front_url", "image_ingredients_url")
                  if p.get(k) and not _head_alive(client, p[k])]
         return r, True, deadf
@@ -324,7 +326,7 @@ def run_select(target: int, batch: str) -> None:
                     dead += 1
                     continue
                 p = r["_p"]
-                # front/ingredients가 죽었으면 제품 탈락 대신 스냅샷에서 그 필드만 제거
+                # A dead front/ingredients photo drops the field, not the product.
                 for k in deadf:
                     p.pop(k, None)
                 if deadf:
@@ -339,7 +341,7 @@ def run_select(target: int, batch: str) -> None:
     if len(picked) < target:
         print(f"WARN: 목표 {target} 중 {len(picked)}개만 확보 (풀 소진/이미지 사망 {dead})")
 
-    # --- append: selection.yaml + candidates-food.jsonl + 배치 엔티티 목록
+    # append to selection.yaml, candidates-food.jsonl and the batch entity list
     before = SELECTION.read_text(encoding="utf-8")
     lines = [f"  # --- 대량 확장 {batch} (OFF 덤프 20260720, docs/08) ---"]
     for r in picked:
@@ -361,8 +363,8 @@ def run_select(target: int, batch: str) -> None:
     prev = ents_path.read_text(encoding="utf-8") if ents_path.exists() else ""
     ents_path.write_text(prev + "".join(f"01/{gtin_to_14(r['code'])}\n" for r in picked), encoding="utf-8")
 
-    # 첫 태그는 OFF 최상위 우산(plant-based 등)이라 착시가 큼(7-29, make_review와 동일 처리) —
-    # 우산을 건너뛴 첫 세부 태그로 집계해야 실제 편중이 보인다.
+    # The first tag is an umbrella category (plant-based and friends) and hides the
+    # real distribution; count the first specific tag after it instead.
     _umbrella = {"plant-based-foods-and-beverages", "plant-based-foods",
                  "beverages-and-beverages-preparations", "fermented-foods"}
 

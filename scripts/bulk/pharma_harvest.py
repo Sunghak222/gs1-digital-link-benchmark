@@ -1,18 +1,15 @@
-"""대량 확장 — 의약품(openFDA 라벨) 수확기 (docs/11).
+"""Bulk expansion — openFDA drug-label harvester.
 
-    python -m scripts.bulk.pharma_harvest scan                        # 덤프 14파트 -> UPC 보유 창고 + 통계
-    python -m scripts.bulk.pharma_harvest select --batch pharma-pilot # 파일럿 목록 -> 스냅샷·selection 등록
+    python -m scripts.bulk.pharma_harvest scan                        # 14 dump parts -> warehouse + stats
+    python -m scripts.bulk.pharma_harvest select --batch pharma-pilot # register the chosen labels
 
-OFF 수확기(off_harvest)와 같은 패턴: scan은 덤프 전용(API 0회), 원본 줄 전체를 창고에 보존.
-select는 확정 후보 파일(work/bulk/pharma-pilot-20.jsonl — 2026-07-31 사용자 승인 20개)을
-읽어 ① data/raw/openfda/label-{upc}.json 스냅샷(사용 필드+DailyMed 이미지 URL 동봉)
-② selection.yaml `pharma:` 절(파일 끝 append — food/place 삽입 지점과 무충돌)
-③ candidates-pharma.jsonl ④ expansion/{batch}-entities.txt 를 쓴다.
-대량 select(게이트→선별)는 docs/17 확정 후 확장 예정.
+Same shape as the OFF harvester: scan reads the dump only and keeps every matched
+line verbatim. select reads the approved candidate file and writes the snapshot
+(the fields we use plus DailyMed image URLs), the pharma block of selection.yaml,
+candidates-pharma.jsonl and the batch entity list.
 
-덤프: benchmark/data/dump/openfda-label/drug-label-00NN-of-0014.json.zip
-     (https://open.fda.gov/apis/downloads/ 벌크, export 2026-07-29, 261,077 라벨)
-창고 게이트: openfda.upc 존재 — GTIN이 있어야 DL URI(01/{gtin})에 태울 수 있다.
+Warehouse gate: openfda.upc must exist — without a GTIN there is no 01/{gtin}
+Digital Link path to hang the entity on.
 """
 from __future__ import annotations
 
@@ -30,18 +27,18 @@ from scripts.common.identifiers import gtin_to_14, is_valid
 
 BULK_DIR = WORK_DIR / "bulk"
 DUMP_DIR = DATA_DIR / "dump" / "openfda-label"
-#: UPC 보유 라벨의 덤프 원본 전체 보존 창고 (off-raw-matched와 같은 역할)
+#: Verbatim dump lines for every UPC-bearing label, mirroring off-raw-matched.
 RAW_MATCHED = BULK_DIR / "pharma-raw-matched.jsonl.gz"
 PILOT = BULK_DIR / "pharma-pilot-20.jsonl"
 SELECTION = WORK_DIR / "selection.yaml"
 CAND_PHARMA = WORK_DIR / "candidates-pharma.jsonl"
 
-#: 충실도 리포트 대상 핵심 텍스트 필드 (docs/11 §3)
+#: Text fields the coverage report measures (docs/11 §3).
 CORE_FIELDS = ["indications_and_usage", "dosage_and_administration", "warnings",
                "active_ingredient", "inactive_ingredient", "purpose",
                "storage_and_handling", "questions"]
 
-#: 스냅샷에 담는 라벨 본문 필드 (docs/11 부록 A의 ✓·△ 소비자 라벨 섹션)
+#: Label body fields kept in a snapshot — the consumer-facing sections.
 SNAPSHOT_FIELDS = [
     "purpose", "indications_and_usage", "dosage_and_administration", "warnings",
     "active_ingredient", "inactive_ingredient", "storage_and_handling", "questions",
@@ -116,7 +113,7 @@ def run_scan() -> None:
 
 
 def run_select(batch: str) -> None:
-    """파일럿 확정본 20개를 파이프라인에 등록한다 (멱등 — 이미 등록된 UPC는 건너뜀)."""
+    """Register the approved labels. Idempotent: already-registered UPCs are skipped."""
     ensure_dirs()
     rows = [json.loads(l) for l in PILOT.read_text(encoding="utf-8").splitlines() if l.strip()]
     existing: set[str] = set()
@@ -131,7 +128,7 @@ def run_select(batch: str) -> None:
         upc, sid = row["upc"], row["set_id"]
         rec = row["record"]
         of = rec.get("openfda") or {}
-        # 스냅샷: 사용 필드 + DailyMed 이미지 URL 동봉 (build_fixtures가 읽음)
+        # Snapshot: the fields we use plus DailyMed image URLs, read by build_fixtures.
         media_raw = cached_json(RAW_PHARMA_DIR / f"media-{sid}.json", DAILYMED_MEDIA.format(sid=sid))
         media = [{"name": m.get("name"), "url": m.get("url"), "mime_type": m.get("mime_type")}
                  for m in (media_raw.get("data") or {}).get("media") or [] if m.get("url")]
@@ -159,8 +156,8 @@ def run_select(batch: str) -> None:
     if not sel_lines:
         print("select: 신규 등록 0 (전부 기존)")
         return
-    # selection.yaml — pharma: 절은 파일 끝 append. food(place: 앞 삽입)·place(place_excluded:
-    # 앞 삽입)의 구조 가정과 충돌하지 않는 유일한 위치다.
+    # The pharma block appends at the end of selection.yaml: the only spot that does
+    # not collide with where food and place insert themselves.
     text = SELECTION.read_text(encoding="utf-8")
     if "\npharma:" not in text:
         text = text.rstrip("\n") + "\n\npharma:  # openFDA OTC 라벨 (UPC=GTIN, docs/11)\n"

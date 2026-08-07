@@ -56,8 +56,9 @@ def gate_for(cls: str, linktypes: Any, media: list) -> dict[str, Any]:
             "ok": not missing and optional_n >= OPTIONAL_MIN}
 
 
-#: 증분 빌드 캐시 무효화 키 (2026-08-05). 페이지 생성 규칙(템플릿·라벨·page_context·
-#: masterdata_jsonld·linkset 구성 등 산출물에 영향 주는 코드)을 바꾸면 반드시 올릴 것.
+#: Cache-invalidation key for the incremental build. Bump it whenever page
+#: rendering changes (templates, labels, page_context, masterdata_jsonld, linkset
+#: assembly) or existing entities keep their stale output.
 BUILD_RULES_VERSION = "2026-08-05.1"
 
 LINKTYPE_LABELS = {  # (ko, en)
@@ -71,7 +72,7 @@ LINKTYPE_LABELS = {  # (ko, en)
     "consumerHandlingStorageInfo": ("보관·취급", "Storage & Handling"),
     "sustainabilityInfo": ("포장·재활용", "Packaging & Recycling"),
     "openingHoursInfo": ("운영 시간", "Opening Hours"),
-    "support": ("방문자 지원", "Support & Contact"),  # en은 pharma 문의처용 (기존 en support 페이지 없음)
+    "support": ("방문자 지원", "Support & Contact"),  # the en label serves pharma contact info
     "masterData": ("마스터 데이터", "Master Data"),
     "relatedImage": ("사진", "Photos"),
     "instructions": ("복용법", "Directions"),
@@ -283,12 +284,11 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
         "entities": {}, "gate": {}, "placement": {},
     }
     gate_failures = []
-    build_errors = []  # 엔티티 1개의 예외가 전체 빌드를 죽이지 않게 격리(2026-08-04, 몰아서 빌드 전제)
+    build_errors = []  # one entity's failure must not kill the batch
 
-    # --- 증분 빌드 (2026-08-05): 엔티티별 입력 지문(팩트+미디어+메타+규칙 버전)이 이전
-    # 빌드와 같으면 렌더링을 건너뛰고 이전 manifest 항목을 재사용한다. 페이지 생성 규칙
-    # (템플릿·라벨·컨텍스트 로직)을 바꿀 때는 반드시 BUILD_RULES_VERSION을 올릴 것 —
-    # 안 올리면 기존 엔티티에 새 규칙이 반영되지 않는다. --full로 강제 전체 재생성 가능.
+    # Incremental build: an entity whose input fingerprint (facts + media + meta +
+    # rules version) matches the last build keeps its previous manifest entry and is
+    # not re-rendered. --full forces everything.
     prev_entities: dict[str, Any] = {}
     prev_gate: dict[str, Any] = {}
     if not full and (out_root / "manifest.json").exists():
@@ -296,7 +296,7 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
             _prev = json.loads((out_root / "manifest.json").read_text(encoding="utf-8"))
             prev_entities = _prev.get("entities") or {}
             prev_gate = _prev.get("gate") or {}
-        except Exception:  # noqa: BLE001 — 캐시 불러오기 실패는 전체 재생성으로 자연 강등
+        except Exception:  # noqa: BLE001 — an unreadable cache just means a full rebuild
             pass
     reused = 0
 
@@ -306,10 +306,10 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
                            ensure_ascii=False, sort_keys=True, default=str)
         return hashlib.sha256(basis.encode()).hexdigest()
 
-    # --- 미디어 프리페치 (2026-08-04): 이미지 다운로드가 빌드 시간의 ~90%(순차 개당 ~4초).
-    # 게이트를 통과할 엔티티의 미보유 이미지만 동시 8개로 먼저 받아둔다. 본 루프는 기존
-    # 순차 경로 그대로(파일이 있으면 지나감) — 프리페치 실패분은 본 루프가 재시도 후
-    # BUILD FAIL로 보고하므로 여기서는 조용히 넘어간다. 게이트 판정식은 본 루프와 동일해야 함.
+    # Media prefetch: downloading images dominates build time (~4 s each when
+    # sequential), so fetch what the gate-passing entities are missing, 8 at a time.
+    # The main loop is unchanged and skips files that already exist; anything that
+    # fails here it retries and reports as BUILD FAIL, so failures stay silent.
     to_fetch: list[tuple[Path, str]] = []
     for entity, meta in entity_map.items():
         lts = set(by_entity[entity])
@@ -346,7 +346,7 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
             linktypes = dict(by_entity[entity])
             media = collect_media(cls, source_id)
 
-            # --- 증분: 입력이 안 바뀐 엔티티는 이전 결과 재사용 (렌더·다운로드 생략)
+            # Unchanged input: reuse the previous result, skip render and download.
             fp = _fingerprint(meta, linktypes, media)
             prev = prev_entities.get(entity)
             if (prev and prev.get("fingerprint") == fp
@@ -366,7 +366,7 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
                 gate_failures.append((entity, name, gate))
                 continue
 
-            # 폴더는 게이트 통과 후에만 생성 — 탈락 엔티티가 잔재(빈 폴더)를 남기지 않게(2026-08-04)
+            # Create folders only after the gate passes, so rejects leave nothing behind.
             pages_dir.mkdir(parents=True, exist_ok=True)
             media_dir.mkdir(parents=True, exist_ok=True)
 
@@ -438,11 +438,11 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
                 "fingerprint": fp,
             }
             print(f"  {entity} [{template}] pages={len(linktypes) + 1} media={len(media_entries)}")
-        except Exception as e:  # noqa: BLE001 — 실패 엔티티는 흔적 없이 제거하고 끝에 보고
+        except Exception as e:  # noqa: BLE001 — remove all trace, report at the end
             build_errors.append((entity, name, repr(e)))
             manifest["gate"].pop(entity, None)
             manifest["entities"].pop(entity, None)
-            for lt_facts in by_entity[entity].values():  # (감사 F9) 전체 placement 스캔 대신 해당 키만
+            for lt_facts in by_entity[entity].values():  # only this entity's keys, not a full placement scan
                 for f in lt_facts:
                     manifest["placement"].pop(f["fact_id"], None)
             shutil.rmtree(ent_dir, ignore_errors=True)
