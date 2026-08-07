@@ -1,12 +1,12 @@
-"""오답 분석 — correct가 아닌 문항들의 실패 지점을 증거 사슬로 분류한다.
+"""Classify where each non-correct answer broke, following the evidence chain.
 
     python eval/analyze_failures.py results/<run_dir>
 
-grades.jsonl(채점)과 raw/<qa_id>.json(실행 전 과정)을 대조해 문항마다:
-  ① 정답 페이지를 읽었는가 (answer_page_hit)
-  ② 정답 값이 LLM 프롬프트(state)까지 도달했는가 (raw 전문에서 값 문자열 탐색 — 휴리스틱)
-  ③ 안 읽었다면 후보 선택 단계에서 그 페이지가 어떤 취급을 받았는가
-를 확인하고 실패 유형을 붙인다. 결과: <run_dir>/failure-analysis.md
+Cross-references grades.jsonl with raw/<qa_id>.json to ask, per question:
+  1. was the gold page read at all (answer_page_hit)
+  2. did the gold value reach the prompt (heuristic search of the raw record)
+  3. if not read, how did the candidate selector treat that page
+Writes <run_dir>/failure-analysis.md.
 """
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
 
 
 def value_tokens(value: Any) -> list[str]:
-    """raw 전문에서 찾아볼 값 문자열 후보들 (숫자·문자열 단위로 분해)."""
+    """Value strings to look for in the raw text, split into numbers and words."""
     if isinstance(value, dict):
         return [t for v in value.values() for t in value_tokens(v)]
     if isinstance(value, list):
@@ -39,7 +39,7 @@ def value_tokens(value: Any) -> list[str]:
 
 
 def gold_page_treatment(raw: dict[str, Any], gold_pages: list[str]) -> str:
-    """정답 페이지가 후보 선택에서 받은 취급 (traverse/preprocess/skip/후보목록에 없음)."""
+    """How the candidate selector treated the gold page: traverse, preprocess, skip or absent."""
     cands = (raw.get("candidate_plan") or {}).get("candidates") or []
     tails = {"/".join(g.split("/")[-2:]) for g in gold_pages}
     actions = [c.get("action") for c in cands
@@ -77,7 +77,7 @@ def main() -> None:
         tokens = [t for fid in qa["gold_fact_ids"] for t in value_tokens(facts.get(fid, {}).get("value"))]
         evidence = any(t in raw_text for t in tokens) if tokens else False
         treatment = gold_page_treatment(raw, g.get("gold_pages") or [])
-        # 채점 규칙 이슈 후보: 답변 안에 정답 값 토큰이 전부 있는데 correct가 아님
+        # Possible grading-rule issue: every gold token is present yet the verdict is not correct.
         answer = str(g.get("answer") or "")
         all_in_answer = bool(tokens) and all(t in answer for t in tokens)
         category = ("J. 채점 규칙 이슈 의심 — 답변에 정답 값이 전부 있음 (추가 정보 감점?)"

@@ -1,17 +1,15 @@
-"""Doc 04 §1.2 — 방법 2 어댑터: 파이프라인의 "문서 배달 경로"만 로컬 fixture로 바꾼다.
+"""Swap only the pipeline's document-delivery path for local fixtures.
 
-실그래프(agent 모드)를 그대로 돌리되, 외부 접근이 일어나는 seam 세 곳만 교체한다.
-판단하는 로직(후보 선택 LLM, 병렬 traversal, critic, 합성)은 전부 실코드 그대로.
+The real graph runs in agent mode exactly as it ships; the three seams where it
+reaches outside are replaced. Everything that decides anything — the candidate
+selector, parallel traversal, the critics, synthesis — is untouched production code.
 
-  seam 1: resolve_digital_link 도구  → linkset·페이지를 fixture 폴더에서 읽는 로컬 도구
-          (explorer._tools 캐시에 미리 꽂는다 — digital_link_explorer.py:464-469)
-  seam 2: resolver.fetch_bytes       → 인덱싱 바이트를 fixture 파일에서 읽는다
-          (vector_index/resolver.py:75 를 런타임 교체)
-  seam 3: 이미지 질문 도구            → URL을 data URL(base64)로 바꾼 뒤 원본 도구 호출
-          (explorer._image_question_tool 캐시에 미리 꽂는다)
+  seam 1  resolve_digital_link tool -> reads linksets and pages from the fixture tree
+  seam 2  resolver.fetch_bytes      -> reads indexing bytes from fixture files
+  seam 3  image-question tool       -> rewrites the URL to a base64 data URL first
 
-코어 코드는 한 줄도 수정하지 않는다. 코어 내부 속성(_tools, _image_question_tool)에
-의존하는 지점은 전부 이 파일 안에만 있다 (doc 04 §9 리스크 참조).
+No core file is edited. Every dependence on core internals (_tools,
+_image_question_tool) is confined to this module.
 """
 from __future__ import annotations
 
@@ -33,10 +31,10 @@ _MIME_BY_SUFFIX = {
 
 
 def setup_core_env() -> None:
-    """코어 import 전에 호출: .env 로드 + sys.path (validate.py와 같은 패턴).
+    """Call before importing the core: loads .env and extends sys.path.
 
-    코어 config.py의 load_dotenv()는 cwd 기준이라 benchmark/에서 실행하면
-    kg_neo4j/.env를 못 찾는다 — 여기서 명시적으로 로드해 둔다.
+    The core's load_dotenv() resolves against the working directory, so running
+    from benchmark/ would never find kg_neo4j/.env. Load it explicitly instead.
     """
     from dotenv import load_dotenv
 
@@ -48,7 +46,7 @@ def setup_core_env() -> None:
 
 
 class FixtureResolver:
-    """GS1 Digital Link 경로/URL → fixture 파일 매핑.
+    """Maps a GS1 Digital Link path or URL onto a file in the fixture tree.
 
     "/01/00000050457250?linktype=linkset"            → <root>/01-00000050457250/linkset.json
     "/01/00000050457250/pages/pip.html"              → <root>/01-00000050457250/pages/pip.html
@@ -61,7 +59,7 @@ class FixtureResolver:
         if not self.corpus_root.is_dir():
             raise FileNotFoundError(f"corpus root not found: {self.corpus_root}")
 
-    # -- 경로 매핑 ---------------------------------------------------------
+    # -- path mapping ------------------------------------------------------
 
     def to_file(self, path_or_url: str) -> Path:
         parts = urlsplit(str(path_or_url))
@@ -89,20 +87,20 @@ class FixtureResolver:
     # -- seam 1: resolve_digital_link -------------------------------------
 
     def resolve(self, path: str) -> Any:
-        """로컬 도구의 본체. linkset은 dict, 페이지는 텍스트를 돌려준다."""
+        """The local tools: a linkset comes back as a dict, a page as text."""
         target = self.to_file(path)
         if target.name == "linkset.json":
             return self._serve_linkset(target)
         if target.suffix.lower() in _MIME_BY_SUFFIX:
-            return self.to_data_url(target)          # 미디어를 직접 물으면 data URL로
+            return self.to_data_url(target)          # a direct media request becomes a data URL
         return self._decode_page(target.read_bytes())
 
     def _serve_linkset(self, target: Path) -> dict[str, Any]:
-        """linkset.json을 읽고 상대 href를 anchor 기준 절대 URL로 바꿔서 서빙.
+        """Serve linkset.json with relative hrefs resolved against the anchor.
 
-        데이터셋 파일은 건드리지 않는다 — 응답 시점 변환(doc 04 §1.2 원칙 2).
-        절대화하는 이유: 후보 선택 LLM이 복사하는 source_url에 엔티티 맥락이
-        담겨야 traversal·인덱싱이 어느 폴더인지 되찾을 수 있다.
+        The dataset file is never rewritten; this happens at response time. The URLs
+        must be absolute because the candidate selector copies them into source_url,
+        and traversal and indexing need that entity context to find the folder again.
         """
         payload = json.loads(target.read_text(encoding="utf-8"))
         for ctx in payload.get("linkset", []):
@@ -118,16 +116,16 @@ class FixtureResolver:
 
     @staticmethod
     def _decode_page(raw: bytes) -> str:
-        """EUC-KR 폴백 디코드 (validate.py read_page와 같은 규칙)."""
+        """EUC-KR fallback decode, matching validate.read_page."""
         head = raw[:200].decode("ascii", "ignore")
         return raw.decode("cp949" if "euc-kr" in head.lower() else "utf-8")
 
-    # -- seam 2: 인덱싱 바이트 ---------------------------------------------
+    # -- seam 2: bytes handed to the indexer -------------------------------
 
     def fetch_bytes_local(self, href: str) -> bytes:
         return self.to_file(href).read_bytes()
 
-    # -- seam 3: 이미지 → data URL -----------------------------------------
+    # -- seam 3: image URL -> data URL -------------------------------------
 
     def to_data_url(self, path_or_url: str | Path) -> str:
         target = Path(path_or_url) if isinstance(path_or_url, Path) else self.to_file(path_or_url)
@@ -136,7 +134,7 @@ class FixtureResolver:
 
 
 def build_pipeline(corpus_root: Path):
-    """seam 3곳을 교체한 실파이프라인(ChatPipeline)을 돌려준다."""
+    """The real ChatPipeline with the three seams replaced."""
     setup_core_env()
 
     from langchain_core.tools import StructuredTool
@@ -154,7 +152,7 @@ def build_pipeline(corpus_root: Path):
     pipeline = ChatPipeline()
     explorer = pipeline.external_retriever.digital_link_node
 
-    # seam 1 — linkset·페이지 조회 도구
+    # seam 1 — the linkset and page lookup tools
     class _ResolveInput(BaseModel):
         path: str = Field(..., description="GS1 Digital Link path, e.g. /01/00000050457250/pages/pip.html")
 
@@ -173,7 +171,7 @@ def build_pipeline(corpus_root: Path):
         )
     }
 
-    # seam 3 — 이미지 질문 도구 (URL → data URL 변환 후 원본 도구 호출)
+    # seam 3 — image questions: rewrite the URL, then call the original tool
     inner_image_tool = build_image_question_tool(pipeline.llm)
 
     async def answer_from_image(user_query: str, image: str) -> Any:
@@ -188,7 +186,7 @@ def build_pipeline(corpus_root: Path):
         args_schema=ImageQuestionInput,
     )
 
-    # seam 2 — 인덱싱 바이트 (module attribute 교체; 외부 fetch는 이제 일어날 수 없다)
+    # seam 2 — swap the module attribute so no outbound fetch can happen
     vres.fetch_bytes = fixtures.fetch_bytes_local
 
     return pipeline, fixtures

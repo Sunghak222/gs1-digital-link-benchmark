@@ -1,11 +1,11 @@
-"""Doc 04 §4 — 채점. 실행 기록(results.jsonl)과 정답지(qa.jsonl·facts.jsonl·manifest)만으로
-판정한다 — 파이프라인 재실행 없음.
+"""Grade a run from its records alone — the pipeline is never re-run.
 
-    python eval/grade.py results/<run_dir>                      # LLM 채점 + 정답 페이지 대조
-    python eval/grade.py results/<run_dir> --review-sample 10   # + 사람 검수용 표 생성
+    python eval/grade.py results/<run_dir>
+    python eval/grade.py results/<run_dir> --review-sample 10   # + human review sheet
 
-채점 모델은 파이프라인과 **다른** 모델(기본 gpt-4o-mini) — 자기 채점 편향 방지 + 저렴.
-결과는 <run_dir>/grades.jsonl, 검수표는 <run_dir>/review-sample.md.
+Judged against qa.jsonl, facts.jsonl and the manifest. The judge is a different
+model from the one under test, which keeps it cheap and avoids self-grading bias.
+Writes <run_dir>/grades.jsonl and, on request, <run_dir>/review-sample.md.
 """
 from __future__ import annotations
 
@@ -51,7 +51,7 @@ def fact_value_str(fact: dict[str, Any]) -> str:
 
 
 def page_hit(record: dict[str, Any], gold_pages: list[str]) -> bool | None:
-    """읽은 페이지 목록에 정답 팩트의 페이지가 있는가. 대조 불가면 None."""
+    """Did the pages the pipeline read include the gold fact's page? None if undecidable."""
     read = record.get("retrieval", {}).get("read_pages") or []
     if not gold_pages:
         return None
@@ -99,7 +99,7 @@ def quadrant(verdict: str, hit: bool | None) -> str:
 
 
 def write_review_sample(run_dir: Path, graded: list[dict[str, Any]], qa_by_id: dict, n: int) -> Path:
-    """사람 검수용 표: correct 아닌 판정(오답 검증)과 correct 판정(정답 검증)을 6:4로 섞는다."""
+    """Review sheet: 60% not-correct verdicts, 40% correct ones, so both directions get checked."""
     rng = random.Random(42)
     flagged = [g for g in graded if g["verdict"] != "correct"]
     normal = [g for g in graded if g["verdict"] == "correct"]

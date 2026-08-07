@@ -105,6 +105,17 @@ def extract(gtin: str, entity: str) -> tuple[str, list[dict[str, Any]]]:
     return name, facts
 
 
+def extra_page_copy(linktype: str, page_facts: list[dict[str, Any]]) -> list[str]:
+    """Say "no traces declared" in words rather than leaving the section silent.
+
+    This is page copy, not a fact: OFF staying quiet is not a negative claim, which
+    is why the wording says "declared".
+    """
+    if linktype == "allergenInfo" and not any(f["predicate"] == "traces" for f in page_facts):
+        return ["No \u2018may contain\u2019 warnings declared for this product."]
+    return []
+
+
 def media(gtin: str) -> list[tuple[str, str, str]]:
     p = off_client.get_product(gtin)
     pairs = [("front.jpg", p.get("image_front_url")),
@@ -119,7 +130,9 @@ DOMAIN = Domain(
     page_language="en",
     license=LICENSE,
     required_linktypes=REQUIRED,
+    schema_type="Product",
     identify=identify,
     extract=extract,
     media=media,
+    extra_page_copy=extra_page_copy,
 )

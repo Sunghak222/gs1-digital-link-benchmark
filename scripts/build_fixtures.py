@@ -204,11 +204,7 @@ def page_context(entity: str, name: str, cls: str, linktype: str,
         else:
             scalars.append((_pretty(pred), _render_value(val)))
 
-    # absence stated positively, as page copy only (NOT a fact — OFF silence is not
-    # a negative claim; wording says "declared" for that reason, 2026-07-27)
-    if cls == "food" and linktype == "allergenInfo" \
-            and not any(f["predicate"] == "traces" for f in page_facts):
-        passages.append("No ‘may contain’ warnings declared for this product.")
+    passages.extend(get_domain(cls).extra_page_copy(linktype, page_facts))
 
     nutrition = None
     if nutrition_by_name:
@@ -221,7 +217,7 @@ def page_context(entity: str, name: str, cls: str, linktype: str,
     jsonld = None
     if template == "t3_jsonld" and jsonld_fields:
         jsonld = json.dumps(
-            {"@context": "https://schema.org/", "@type": "Place" if cls == "place" else "Product",
+            {"@context": "https://schema.org/", "@type": get_domain(cls).schema_type,
              "name": name, **{k: v for k, v in jsonld_fields.items()}},
             ensure_ascii=False)
 
@@ -375,7 +371,9 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
             # --- pages (S5)
             for lt, page_facts in linktypes.items():
                 ctx = page_context(entity, name, cls, lt, page_facts, template)
-                encoding = "cp949" if template == "t4_noisy" and cls == "place" else "utf-8"
+                domain = get_domain(cls)
+                encoding = (domain.legacy_encoding
+                            if template == "t4_noisy" and domain.legacy_encoding else "utf-8")
                 if encoding == "cp949":
                     ctx["charset"] = "euc-kr"
                 html = ENV.get_template(f"{template}.html.j2").render(**ctx)
@@ -411,20 +409,21 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
 
             # --- linkset (S7)
             anchor = f"{ANCHOR_BASE}/{entity}"
+            lang = get_domain(cls).page_language
             ls: dict[str, Any] = {"anchor": anchor}
             ls[f"{REL_BASE}defaultLink"] = [{"href": "pages/pip.html", "type": "text/html"}]
             for lt in [*linktypes, "masterData"]:
                 ko, en = LINKTYPE_LABELS.get(lt, (lt, lt))
                 ls[f"{REL_BASE}{lt}"] = [{
                     "href": f"pages/{lt}.html", "type": "text/html",
-                    "title": ko if cls == "place" else en,
-                    "hreflang": ["ko" if cls == "place" else "en"],
+                    "title": ko if lang == "ko" else en,
+                    "hreflang": [lang],
                 }]
             if media_entries:
                 ls[f"{REL_BASE}relatedImage"] = [
                     {"href": f"media/{m['file']}", "type": m["type"],
-                     "title": ("사진" if cls == "place" else "Photo") + f" {i}",
-                     "hreflang": ["ko" if cls == "place" else "en"]}
+                     "title": ("사진" if lang == "ko" else "Photo") + f" {i}",
+                     "hreflang": [lang]}
                     for i, m in enumerate(media_entries, start=1)
                 ]
             linkset = {"linkset": [ls]}

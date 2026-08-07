@@ -1,11 +1,12 @@
-"""run 폴더 → 자립형 리포트(report.html) 생성.
+"""Turn a run folder into a self-contained report.html.
 
     python eval/report.py results/<run_dir>
 
-1층: 대시보드(판정·4분면·실패 유형·슬라이스 정확도·시간 분포).
-2층: 문항 상세 — 증거 사슬(후보 취급 → 읽은 페이지 → 추출본 → 값 도달) + 검수 입력(○/✗·메모,
-브라우저 localStorage 저장, JSON 내보내기). grade.py 실행 후 사용.
-UI는 한/영 전환 가능(헤더 토글) — 질문·답변 같은 데이터는 원문 그대로, 라벨과 판정 문구만 번역.
+Two levels: a dashboard (verdicts, quadrants, failure types, slice accuracy, timing)
+and per-question detail following the evidence chain — how the selector treated the
+page, what was read, what the extractor produced, whether the value survived — plus
+review inputs stored in localStorage and exportable as JSON. Run grade.py first.
+The UI toggles Korean/English for labels only; questions and answers stay verbatim.
 """
 from __future__ import annotations
 
@@ -31,7 +32,7 @@ def tail(p: str, n: int = 2) -> str:
 
 
 def extract_snippets(raw: dict[str, Any], gold_tails: set[str], tokens: list[str]) -> list[dict[str, Any]]:
-    """정답 페이지의 '파이프라인이 받은 추출본' 발췌 + 값 포함 여부."""
+    """Excerpt of the gold page as the pipeline actually received it, and whether the value survived."""
     out = []
     for t in (raw.get("digital_link_result") or {}).get("traversed_links") or []:
         path = str((t.get("arguments") or {}).get("path") or "")

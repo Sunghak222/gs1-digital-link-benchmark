@@ -1,12 +1,27 @@
 # GS1 Digital Link Multimodal RAG Benchmark
 
-A benchmark for evaluating RAG pipelines that answer questions by following GS1 Digital Link resolvers.
-Starting from open data (Open Food Facts and the Korea Tourism Organization's TourAPI), it builds a **fixture corpus of linksets, HTML pages, and images**, plus QA with gold answers.
+A benchmark for evaluating RAG pipelines that answer questions by following GS1 Digital Link
+resolvers. Starting from open data — Open Food Facts, the Korea Tourism Organization's TourAPI
+and openFDA drug labels — it builds a **fixture corpus of linksets, HTML pages and images**,
+plus QA with gold answers.
+
+> ### This repository holds the machinery, not the corpus
+>
+> The built corpus is 15 GB and the dataset ships separately. What is version controlled is
+> everything needed to rebuild it: the scripts, the schemas, and `work/selection.yaml` — the
+> list of entities that defines the corpus. Extraction is deterministic, so a rebuild from the
+> cached sources reproduces `facts.jsonl` byte for byte.
+>
+> Absent from git and produced by a build: `entities/`, `counterfactual/`, `facts.jsonl`,
+> `manifest.json`, `qa.jsonl`, `releases/`, `results/`.
 
 The benchmark has two tracks:
 
-- **v1.0 (frozen, `releases/v1.0/`)** — 20 hand-reviewed entities, 407 facts, **221 QA items**, and a counterfactual corpus. All evaluation runs use this release.
-- **Expansion track (growing daily)** — an automated bulk pipeline extends the corpus in daily batches. As of 2026-07-27: **1,254 entities (1,000 food + 254 places), 31,935 facts, 9,685 pages, 3,988 images**. QA and counterfactuals for the new entities come later, at version milestones.
+- **v1.0 (frozen)** — 20 hand-reviewed entities, 407 facts, **221 QA items** and a counterfactual
+  corpus. Evaluation runs use this release.
+- **Expansion track** — an automated bulk pipeline extends the corpus in batches. As of
+  2026-08-07: **75,471 entities, 1,880,481 facts, 487,954 pages, 211,516 images**. QA and
+  counterfactuals for the new entities come at version milestones.
 
 > 한국어판: [docs/README.ko.md](docs/README.ko.md) (v1.0 시점 기준)
 
@@ -26,14 +41,16 @@ Why build this from scratch? GS1 Digital Link is a standard that turns a barcode
 
 ## Dataset at a glance
 
-| Item | v1.0 (frozen) | Expansion track (2026-07-22) |
+| Item | v1.0 (frozen) | Expansion track (2026-08-07) |
 |---|---|---|
-| Entities | 20 — 10 food + 10 places | **694** — 440 food (real GTINs) + 254 Korean attractions (demo GLNs) |
-| Facts | 407 | **31,935** |
-| Pages | 130 per corpus | **9,685** per corpus — 4 rotating templates (plain / table-heavy / JSON-LD / noisy), incl. EUC-KR pages |
-| Images | 58 | **2,308** — food front / nutrition label / ingredients + KOGL Type-1 place photos |
+| Entities | 20 — 10 food + 10 places | **75,471** — 75,197 food and 20 OTC drugs (real GTINs) + 254 Korean attractions (demo GLNs) |
+| Facts | 407 | **1,880,481** |
+| Pages | 130 per corpus | **487,954** per corpus — 4 rotating templates (plain / table-heavy / JSON-LD / noisy), incl. EUC-KR pages |
+| Images | 58 | **211,516** — food front / nutrition label / ingredients, KOGL Type-1 place photos, DailyMed package labels |
 | QA | **221** — 210 html / 11 image, 126 EN / 95 KO, 5 multi-hop | pending (generated at version milestones) |
 | Counterfactual | 102 altered facts | corpus mirrors all entities; alterations still v1.0's 102 (expansion pending) |
+
+The food axis is closed: every Open Food Facts product meeting the gates has been harvested.
 
 ## Repository layout
 
@@ -65,24 +82,27 @@ entities/
 
 | File | What it is | Handy version for humans |
 |---|---|---|
-| `facts.jsonl` | All 31,935 facts, one per line — the master record every page and answer was built from | `facts.pretty.json` (same content, grouped per entity → page for reading) |
+| `facts.jsonl` | All 1,880,481 facts, one per line — the master record every page and answer was built from | `facts.pretty.json` (same content, grouped per entity → page for reading) |
 | `qa.jsonl` | The 221 questions with gold answers and which facts prove them (v1.0 entities) | `qa.csv` (open in Excel) |
 | `manifest.json` | Build record — most importantly the *placement map*: which page each fact was printed on. This is how the grader knows which page a retriever should have found | — |
 | `releases/v1.0/` | The frozen v1.0 snapshot (entities, counterfactual, facts, QA, selection) — what experiments actually run on | — |
+
+All four are build outputs and ship with the dataset rather than with this repository.
 
 **How it was all made** — the machinery, needed only when regenerating or extending the dataset:
 
 | Folder | Contents |
 |---|---|
 | `scripts/` | The construction pipeline: pick entities → snapshot sources → extract facts → render pages & linksets → validate → generate QA |
-| `scripts/bulk/` + `scripts/bulk_expand.py` | The daily bulk-expansion pipeline (see "Growing the corpus" below) |
+| `scripts/domains/` | One module per domain (`food`, `place`, `pharma`), each declaring its identifier scheme, extraction rules, media, required linktypes, page language and licence. Adding a domain means adding a module here and one line to the registry |
+| `scripts/common/` | Shared machinery: HTTP with pooling and resume, identifiers and check digits, fact builders, LLM disk cache |
+| `scripts/bulk/` + `scripts/bulk_expand.py` | The bulk-expansion pipeline (see "Growing the corpus" below) |
 | `eval/` | The evaluation harness: runs the real RAG graph over the corpus, grades against gold (`run_eval.py`, `grade.py`, `report.py`) |
-| `results/` | Timestamped evaluation runs |
 | `work/` | Human decisions, script-to-script lists, review records — key files explained below |
 | `schemas/` | JSON Schemas that every fact / QA / linkset must pass |
 | `data/raw/` | Cached API responses and LLM calls (gitignored) — the reason re-runs are reproducible |
-| `data/dump/` | The Open Food Facts full dump (~13 GB, gitignored) — the food candidate source |
-| `docs/` | 01 design rationale / 02 implementation plan / 03 pipeline walkthrough / 04 evaluation-system design / 05 experiment budget / 06 findings / 07 OFF dump plan / 08 bulk-expansion plan |
+| `data/dump/` | Source dumps (gitignored): Open Food Facts ~13 GB, openFDA drug labels ~1.8 GB |
+| `docs/` | 01 design rationale · 02 implementation plan · 03 pipeline walkthrough · 04 evaluation-system design · 05 experiment budget · 06 findings · 07 OFF dump plan · 08 bulk expansion · 09 paper viability · 10 linktype mapping · 11 openFDA/DailyMed analysis · 12–14 performance work |
 
 ### Inside `work/`
 
@@ -145,9 +165,9 @@ CF      : <td>sugars</td><td>13.1 g</td><td>1.97 g</td>
 
 This one QA condenses the whole pipeline: the gold points at a fact from ③, that fact's placement from ④ is the page a retriever should reach, and in the counterfactual corpus from ⑤ the same question must yield 13.1 g.
 
-## Growing the corpus: the daily bulk loop
+## Growing the corpus: the bulk loop
 
-Since day-01 (2026-07-19) the corpus grows in daily batches (plan: [docs/08-bulk-expansion-plan.md](docs/08-bulk-expansion-plan.md)). One day's run:
+The corpus grows in batches (plan: [docs/08-bulk-expansion-plan.md](docs/08-bulk-expansion-plan.md)). One round:
 
 ```bash
 python -m scripts.bulk_expand food  --target 200 --batch day-NN   # OFF dump → gate → select 200
@@ -159,7 +179,12 @@ python -m scripts.bulk_expand finalize --batch day-NN             # extract → 
 - **Places are quota-aware.** A one-time nationwide sweep built a pool of 7,534 attractions; each day evaluates as many as the API budget allows (3 calls per place), and verdicts accumulate in `tour-eval.jsonl` so no call is ever repeated. Pass rate runs ≈ 37%.
 - **Humans review reports, not raw data.** Each batch ends with `work/expansion/day-NN/entity-review.md` listing only exceptions: values that differ between photo and text, entities with few images, unverified items. Structural correctness (GLN order, schema, placement uniqueness) is asserted by code — `verify_batch.py` additionally proves that pre-existing pages are byte-identical after each batch.
 
-Batch history: day-01–02 (pilot, 20+20+40) → day-03 (80→384) → day-04 (384→694).
+- **Drugs come from the openFDA bulk dump.** `scripts/bulk/openfda_download.py` fetches it;
+  a label needs a real UPC to become an entity, since without a GTIN there is no
+  `01/{gtin}` Digital Link path to hang it on.
+
+Batch history: day-01–02 (pilot, 20+20+40) → day-03 (384) → day-04 (694) → day-07 (6,801)
+→ day-08 (75,471, food exhausted). A pharma pilot of 20 sits alongside.
 
 ## Reproducing
 
@@ -186,13 +211,17 @@ Implemented in `eval/` (design: [docs/04-evaluation-system-design.md](docs/04-ev
 
 - Food data & photos: [Open Food Facts](https://openfoodfacts.org) (ODbL / CC-BY-SA), harvested from the full dump. It's crowdsourced, so some values differ from the real world — and we **deliberately did not correct them**: the benchmark's ground truth is this corpus, not reality (text-canonical policy). Nutrient pairs where label photos disagree with the text are excluded from image QA.
 - Place data & photos: Korea Tourism Organization TourAPI. Only photos explicitly under the KOGL Type-1 license are adopted; entities without them are rejected at the gate.
+- Drug labels & package photos: [openFDA](https://open.fda.gov) drug/label and NLM DailyMed —
+  US federal works, public domain. OTC labels only.
 - Place GLNs (`952...`) are fictional identifiers built on the GS1 demo prefix, and **every altered value in the counterfactual corpus is intentionally wrong.** Do not cite any number in this repository as real-world information.
 
 ## Limitations & TODO
 
-- **QA covers only the 20 v1.0 entities** (221 items); QA for the 674 expansion entities is generated and reviewed at version milestones, not per batch.
+- **QA covers only the 20 v1.0 entities** (221 items); QA for the expansion entities is generated and reviewed at version milestones, not per batch. This is the current bottleneck — see [docs/17](../docs/17-qa-generation-design.md) for the design.
 - **Counterfactual alterations likewise cover only v1.0** (102 facts); the expansion entities' CF folders are currently unaltered mirrors.
 - Image QA covers a single skill — reading nutrition labels — with 11 items. Front/ingredients photos and place photos are room to grow.
 - Only 5 multi-hop questions; multi-hop QA is regenerated globally at milestones since answers shift as the corpus grows.
-- Each batch currently rebuilds the full corpus; an incremental build mode is planned as the corpus grows.
-- The food candidate pool is finite (~660 gate-passing products remain); widening the country filter or relaxing gates is an open decision.
+- The food axis is exhausted: every OFF product meeting the gates has been taken. Growing it
+  further means relaxing a gate, e.g. allowing non-English labels.
+- Remaining room to grow: places (TourAPI, resume at `day-09`) and drugs, where the warehouse
+  holds 27,698 UPC-bearing labels against a pilot of 20.

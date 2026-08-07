@@ -29,6 +29,7 @@ from jsonschema.validators import validator_for
 
 from scripts.common.config import BENCH_ROOT, SCHEMA_DIR, WORK_DIR
 from scripts.common.llm import llm_json
+from scripts.domains import get as get_domain
 
 QA_SCHEMA = json.loads((SCHEMA_DIR / "qa.schema.json").read_text(encoding="utf-8"))
 _QA_VALIDATOR = validator_for(QA_SCHEMA)(QA_SCHEMA)  # compiled once, not per call
@@ -211,7 +212,7 @@ def run_draft(batch: str | None = None, entities_file: Path | None = None) -> No
         if not gold_pool:
             continue
         page_no += 1
-        doc_lang = "en" if cls == "food" else "ko"
+        doc_lang = get_domain(cls).page_language
         flipped = page_no % 7 == 0
         q_lang = ("ko" if doc_lang == "en" else "en") if flipped else doc_lang
 

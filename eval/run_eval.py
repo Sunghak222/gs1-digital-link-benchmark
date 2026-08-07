@@ -1,18 +1,20 @@
-"""Doc 04 §3 — QA 루프. 문항마다 실파이프라인을 돌리고, 기록만 저장한다.
+"""Run the real pipeline once per question and record what happened.
 
-    python eval/run_eval.py --qa-ids eval/pilot.txt                  # 전체 그래프 (원본, miss)
-    python eval/run_eval.py --fast-miss --qa-ids ...                 # 문서 경로만 (doc 05 §1)
-    python eval/run_eval.py --corpus counterfactual --qa-ids ...     # 변조본 run
+    python eval/run_eval.py --qa-ids eval/pilot.txt                 # whole graph
+    python eval/run_eval.py --fast-miss --qa-ids ...                # document path only
+    python eval/run_eval.py --corpus counterfactual --qa-ids ...    # counterfactual corpus
 
-miss 실행기는 두 가지다:
-  full — 그래프 전체(KG 헛걸음 포함). critic_1의 조기종료 진단이 필요한 표본용.
-  fast — 문서 경로(external→수거→합성→critic_2)만. miss에서 KG 헛걸음 구간의 결말은
-         정해져 있으므로(빈 KG→진행형 답→external행) 실행하지 않고, 그 구간의 시간은
-         full 표본에서 상수로 측정해 TTFA에 보정한다. critic_2 이후의 재시도 라우팅은
-         코어의 라우팅 함수를 그대로 사용해 전체 그래프와 동일하게 돈다.
+Two miss runners:
+  full  the entire graph, including the fruitless KG hop. Needed when critic_1's
+        early-exit behaviour is what you are measuring.
+  fast  the document path only (external -> collect -> synthesize -> critic_2). On a
+        miss the KG hop always ends the same way — empty KG, holding answer, route to
+        external — so it is skipped and its cost is measured once on a full sample and
+        added back as a constant. Retry routing after critic_2 uses the core router,
+        so it behaves exactly like the full graph.
 
-타이머·토큰 계측은 코어 metrics.py(usage_metrics)를 그대로 재사용 — 여기서 새로 재지 않는다.
-채점은 별도 패스(grade.py, E2). 이 스크립트는 실행 기록(results.jsonl)까지만 책임진다.
+Timing and token counts come from the core metrics module rather than being
+re-measured here. Grading is a separate pass; this script stops at results.jsonl.
 """
 from __future__ import annotations
 
@@ -34,7 +36,7 @@ OVERRIDES_PATH = BENCH_ROOT / "work" / "counterfactual-overrides.jsonl"
 
 
 # ---------------------------------------------------------------------------
-# 입력
+# input
 # ---------------------------------------------------------------------------
 
 def load_qa(qa_ids: list[str] | None) -> list[dict[str, Any]]:
@@ -60,7 +62,7 @@ def sha256_of(path: Path) -> str:
 
 
 # ---------------------------------------------------------------------------
-# 실행기 — 문항 하나를 최종 state로
+# runner — one question to a final state
 # ---------------------------------------------------------------------------
 
 async def ask_full(pipeline, question: str, dl_path: str, recursion_limit: int) -> dict[str, Any]:
@@ -70,7 +72,7 @@ async def ask_full(pipeline, question: str, dl_path: str, recursion_limit: int) 
     )
 
 
-#: critic_2 라우팅이 가리키는 노드 이름 → 거기서부터 critic_2까지의 구간 (그래프 edge와 동일)
+#: node critic_2 routes to -> the stretch from there back to critic_2, mirroring the graph edges
 _DOC_PATH_SEGMENTS = {
     "external_retrieval": ("external_retrieval", "collect_vector_result", "synthesize_answer_2", "critic_2"),
     "retrieve_kg_2": ("retrieve_kg_2", "synthesize_answer_2", "critic_2"),
@@ -93,7 +95,7 @@ async def ask_fast_miss(pipeline, question: str, dl_path: str, recursion_limit: 
     for _ in range(recursion_limit):
         for name in segment:
             state = {**state, **await call_observed_node(name, nodes[name], state)}
-        nxt = pipeline._route_after_critic_2(state)   # 재시도 판단은 코어 라우팅 그대로
+        nxt = pipeline._route_after_critic_2(state)   # retry decision uses the core router unchanged
         if nxt == "end":
             return state
         segment = _DOC_PATH_SEGMENTS[nxt]
@@ -101,7 +103,7 @@ async def ask_fast_miss(pipeline, question: str, dl_path: str, recursion_limit: 
 
 
 # ---------------------------------------------------------------------------
-# 기록 추출 — 최종 state(= FastAPI ChatResponse에 노출되는 그 필드들)에서 꺼낸다
+# Pull the record from the final state — the same fields the HTTP response exposes.
 # ---------------------------------------------------------------------------
 
 def _read_pages(state: dict[str, Any]) -> list[str]:
@@ -137,7 +139,7 @@ def extract_record(qa: dict[str, Any], state: dict[str, Any], metrics: dict[str,
             "runner": runner,
             "node_seq": node_seq,
             "external_used": external_used,
-            # miss에서 external 없이 끝남 = 조기종료(§4.4). full 실행에서만 관측 가능.
+            # Finishing a miss run without external means an early exit; only visible in full runs.
             "early_exit": (not external_used) if runner == "full" else None,
             "critic_stage": state.get("critic_stage"),
             "critic_flags": {
@@ -169,7 +171,7 @@ def extract_record(qa: dict[str, Any], state: dict[str, Any], metrics: dict[str,
 
 
 # ---------------------------------------------------------------------------
-# 실행 루프 (doc 04 §3)
+# run loop
 # ---------------------------------------------------------------------------
 
 async def run(args: argparse.Namespace) -> None:
@@ -192,7 +194,7 @@ async def run(args: argparse.Namespace) -> None:
         raise SystemExit("no QA selected")
 
     runner = "fast" if args.fast_miss else "full"
-    # 폴더명 = 시각 + 실험 이름. 한 번의 실험 = 폴더 하나 (조건 상세는 run.json에).
+    # Folder name is timestamp + experiment; one experiment is one folder, details in run.json.
     experiment = "hit" if args.kg == "hit" else f"miss-{args.corpus}"
     if args.resume:
         run_dir = Path(args.resume)
@@ -243,7 +245,7 @@ async def run(args: argparse.Namespace) -> None:
     results_path = run_dir / "results.jsonl"
     done = 0
     for entity, qas in group_by_entity(qa_items):
-        reset = vector.reset()                      # 새 스캔 세션 (doc 04 §2)
+        reset = vector.reset()                      # fresh scan session
         if not reset.get("ok"):
             raise SystemExit(f"vector.reset() failed: {reset}")
         dl_path = "/" + entity

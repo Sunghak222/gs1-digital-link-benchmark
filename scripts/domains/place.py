@@ -166,7 +166,9 @@ DOMAIN = Domain(
     page_language="ko",
     license=LICENSE,
     required_linktypes=REQUIRED,
+    schema_type="Place",
     identify=identify,
     extract=extract,
     media=media,
+    legacy_encoding="cp949",
 )

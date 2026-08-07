@@ -127,6 +127,7 @@ DOMAIN = Domain(
     page_language="en",
     license=LICENSE,
     required_linktypes=REQUIRED,
+    schema_type="Product",
     identify=identify,
     extract=extract,
     media=media,
