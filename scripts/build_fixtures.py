@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import io
 import json
 import shutil
 import sys
@@ -26,10 +25,10 @@ from typing import Any
 from jinja2 import Environment, FileSystemLoader
 from jsonschema import validate
 
-from scripts.common.config import BENCH_ROOT, DATA_DIR, SCHEMA_DIR, WORK_DIR
+from scripts.common.config import BENCH_ROOT, SCHEMA_DIR, WORK_DIR
 from scripts.common.fetch import get_bytes
-from scripts.clients import off_client, tour_client
-from scripts.extract_facts import _cached_place_base
+from scripts.common.media import to_jpeg
+from scripts.domains import get as get_domain
 
 FACTS_PATH = BENCH_ROOT / "facts.jsonl"
 ENTITY_MAP = WORK_DIR / "entity-map.json"
@@ -41,12 +40,21 @@ ENV = Environment(loader=FileSystemLoader(Path(__file__).parent / "templates"))
 REL_BASE = "https://ref.gs1.org/voc/"
 ANCHOR_BASE = "https://id.oliot.org"
 
-REQUIRED = {  # design doc 01 §S4 (relatedImage is checked against downloaded media)
-    "food": {"pip", "nutritionalInfo"},
-    "place": {"pip", "locationInfo"},
-    "pharma": {"pip", "instructions"},  # 효능·복용법은 전 라벨 100% (docs/11 §3)
-}
+#: An entity needs its domain's required linktypes, at least one image, and this
+#: many optional pages (masterData counts as one).
 OPTIONAL_MIN = 3
+
+
+def gate_for(cls: str, linktypes: Any, media: list) -> dict[str, Any]:
+    """The one place the build gate is decided. Prefetch and the main loop share it."""
+    domain = get_domain(cls)
+    missing = set(domain.required_linktypes) - set(linktypes)
+    if not media:
+        missing.add("relatedImage")
+    optional_n = len(set(linktypes) - domain.required_linktypes) + 1
+    return {"missing_required": sorted(missing), "optional_count": optional_n,
+            "ok": not missing and optional_n >= OPTIONAL_MIN}
+
 
 #: 증분 빌드 캐시 무효화 키 (2026-08-05). 페이지 생성 규칙(템플릿·라벨·page_context·
 #: masterdata_jsonld·linkset 구성 등 산출물에 영향 주는 코드)을 바꾸면 반드시 올릴 것.
@@ -163,7 +171,7 @@ def _pretty(pred: str) -> str:
 
 def page_context(entity: str, name: str, cls: str, linktype: str,
                  page_facts: list[dict[str, Any]], template: str) -> dict[str, Any]:
-    lang = "ko" if cls == "place" else "en"  # food·pharma는 영어 문서
+    lang = get_domain(cls).page_language
     passages: list[str] = []
     scalars: list[tuple[str, str]] = []
     lists: list[tuple[str, list[str]]] = []
@@ -230,7 +238,7 @@ def page_context(entity: str, name: str, cls: str, linktype: str,
 def masterdata_jsonld(entity: str, name: str, cls: str) -> str:
     """Identity-only JSON-LD (no facts from other pages — unique placement holds)."""
     anchor = f"{ANCHOR_BASE}/{entity}"
-    if cls != "place":  # food·pharma 모두 실물 GTIN 제품
+    if get_domain(cls).ai_prefix == "01":              # GTIN-identified product
         doc = {"@context": {"gs1": "https://gs1.org/voc/", "schema": "https://schema.org/"},
                "@id": anchor, "@type": ["gs1:Product", "schema:Product"],
                "schema:name": name, "gs1:gtin": entity.split("/")[1]}
@@ -247,57 +255,12 @@ def masterdata_jsonld(entity: str, name: str, cls: str) -> str:
 
 
 def collect_media(cls: str, source_id: str) -> list[tuple[str, str, str]]:
-    """[(filename, url, license)] — capped at 4.
-
-    Place photos (2026-07-21 policy, public-benchmark quality): gallery must be
-    EXPLICITLY KOGL Type1 — untagged photos no longer pass. The representative
-    photo (firstimage, no copyright tag available) survives only as a legacy
-    fallback for pre-bulk entities with zero Type1 gallery (9 places as of
-    2026-07-21) and is stamped license-unverified for the public-release pass.
-    New entities never take the fallback: the bulk selection gate requires
-    Type1 >= 3 up front.
-    """
-    if cls == "food":
-        p = off_client.get_product(source_id)
-        pairs = [("front.jpg", p.get("image_front_url")),
-                 ("nutrition-label.jpg", p.get("image_nutrition_url")),
-                 ("ingredients.jpg", p.get("image_ingredients_url"))]
-        return [(n, u, "CC-BY-SA (Open Food Facts contributors)") for n, u in pairs if u][:4]
-    if cls == "pharma":
-        # 스냅샷에 select 단계가 DailyMed 이미지 URL을 동봉해둠 (pharma_harvest.run_select)
-        snap = json.loads((DATA_DIR / "raw" / "openfda" / f"label-{source_id}.json")
-                          .read_text(encoding="utf-8"))
-        return [(f"label-{i}.jpg", m["url"], "Public domain (US FDA / NLM DailyMed)")
-                for i, m in enumerate(snap.get("media") or [], start=1)][:4]
-    urls: list[tuple[str, str]] = []
-    for item in tour_client.detail_images(source_id):
-        if item.get("cpyrhtDivCd") != "Type1":
-            continue
-        u = item.get("originimgurl")
-        if u and u not in [x[0] for x in urls]:
-            urls.append((u, "공공누리 제1유형 (한국관광공사 TourAPI)"))
-    if not urls:
-        base = (_cached_place_base(source_id) or [{}])[0]
-        if base.get("firstimage"):
-            urls.append((base["firstimage"], "UNVERIFIED (대표사진 — 저작권 코드 미제공, 공개 전 재결정)"))
-    return [(f"img-{i}.jpg", u, lic) for i, (u, lic) in enumerate(urls[:4], start=1)]
+    """[(filename, url, license)] for one entity — the domain decides what counts."""
+    return get_domain(cls).media(source_id)
 
 
 def _mime(filename: str) -> str:
     return "image/png" if filename.endswith(".png") else "image/jpeg"
-
-
-def _to_jpeg(data: bytes) -> bytes:
-    """TourAPI serves some originals as PNG/BMP regardless of the URL; the linkset
-    declares image/jpeg and VLM APIs reject BMP, so transcode anything non-JPEG."""
-    if data[:3] == b"\xff\xd8\xff":
-        return data
-    from PIL import Image
-
-    img = Image.open(io.BytesIO(data)).convert("RGB")
-    buf = io.BytesIO()
-    img.save(buf, "JPEG", quality=90)
-    return buf.getvalue()
 
 
 # ---------------------------------------------------------------------------
@@ -351,9 +314,8 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
     for entity, meta in entity_map.items():
         lts = set(by_entity[entity])
         media = collect_media(meta["class"], meta["source_id"])
-        if (REQUIRED[meta["class"]] - lts) or not media \
-                or len(lts - REQUIRED[meta["class"]]) + 1 < OPTIONAL_MIN:
-            continue  # 게이트 탈락 예정 — 이미지·폴더 잔재를 만들지 않는다
+        if not gate_for(meta["class"], lts, media)["ok"]:
+            continue  # will fail the gate — do not leave images or folders behind
         slug = entity.replace("/", "-")
         for fname, url, _lic in media:
             target = BENCH_ROOT / "entities" / slug / "media" / fname
@@ -365,7 +327,7 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
         def _prefetch(item: tuple[Path, str]) -> None:
             target, url = item
             try:
-                data = _to_jpeg(get_bytes(url, image=True))
+                data = to_jpeg(get_bytes(url, image=True))
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(data)
             except Exception:  # noqa: BLE001
@@ -398,13 +360,7 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
                 reused += 1
                 continue
 
-            # --- gate (rule part; design 01 §S4)
-            missing = REQUIRED[cls] - set(linktypes)
-            if not media:
-                missing.add("relatedImage")
-            optional_n = len(set(linktypes) - REQUIRED[cls]) + 1  # +1: masterData page below
-            gate = {"missing_required": sorted(missing), "optional_count": optional_n,
-                    "ok": not missing and optional_n >= OPTIONAL_MIN}
+            gate = gate_for(cls, linktypes, media)
             manifest["gate"][entity] = gate
             if not gate["ok"]:
                 gate_failures.append((entity, name, gate))
@@ -427,7 +383,7 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
                 for f in page_facts:
                     manifest["placement"][f["fact_id"]] = f"entities/{slug}/pages/{lt}.html"
 
-            md_lang = "ko" if cls == "place" else "en"
+            md_lang = get_domain(cls).page_language
             md_ctx = {
                 "lang": md_lang, "charset": "utf-8",
                 "title": f"{name} - Master Data", "labels": UI_LABELS[md_lang],
@@ -443,10 +399,10 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
                 target = (BENCH_ROOT / "entities" / slug / "media" / fname)
                 if not target.exists():
                     target.parent.mkdir(parents=True, exist_ok=True)
-                    target.write_bytes(_to_jpeg(get_bytes(url, image=True)))
+                    target.write_bytes(to_jpeg(get_bytes(url, image=True)))
                 else:
                     data = target.read_bytes()
-                    fixed = _to_jpeg(data)
+                    fixed = to_jpeg(data)
                     if fixed != data:
                         target.write_bytes(fixed)
                 if target != media_dir / fname:
@@ -478,9 +434,7 @@ def build(out_root: Path, overrides: Path | None, full: bool = False) -> None:
             manifest["entities"][entity] = {
                 "name": name, "class": cls, "source_id": source_id, "template": template,
                 "pages": sorted([*linktypes, "masterData"]), "media": media_entries,
-                "license": {"food": "ODbL/CC-BY-SA (Open Food Facts)",
-                            "pharma": "Public domain (US FDA openFDA / NLM DailyMed)",
-                            }.get(cls, "공공누리 Type1 (Korea TourAPI)"),
+                "license": get_domain(cls).license,
                 "fingerprint": fp,
             }
             print(f"  {entity} [{template}] pages={len(linktypes) + 1} media={len(media_entries)}")

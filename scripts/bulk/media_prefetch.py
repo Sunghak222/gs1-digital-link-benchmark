@@ -1,16 +1,17 @@
-"""오버랩 이미지 다운로더 — 선별 라운드가 도는 동안 이미지를 미리 받아둔다 (2026-08-05, docs/12·13).
+"""Overlapping image downloader — pull media while the selection rounds run.
 
     python -m scripts.bulk.media_prefetch
 
-selection.yaml의 식품 엔티티 중 미보유 이미지를 build_fixtures.collect_media와
-같은 파일명·경로(entities/01-*/media/)로 저장한다(동시 8, 멱등). 빌드는 파일이
-있으면 그대로 쓰므로 체크포인트 finalize에서 다운로드 시간이 사라진다.
+Writes to the same paths the builder expects (entities/01-*/media/), so by the
+time a checkpoint finalize starts, the download step has nothing left to do.
+Idempotent, 8 at a time.
 
-주의:
-- 팩트 추출 전이라 게이트 판정이 불가능 → 나중에 게이트 탈락할 엔티티의 이미지도
-  받는다(~1~3% 낭비). 탈락 처리 시 selection 제거와 함께 폴더도 지울 것(잔재 방지).
-- finalize와 동시 실행 금지 — 빌드의 프리페치와 같은 파일을 동시에 쓸 수 있다.
-  (선별 select와의 동시 실행은 안전: 서로 다른 파일만 만짐)
+Two things to know:
+  * Facts have not been extracted yet, so the build gate cannot be evaluated —
+    this fetches images for entities that will later fail the gate too (1-3%
+    waste). When you drop a failed entity from selection.yaml, delete its folder.
+  * Do not run alongside finalize: the builder prefetches the same files.
+    Running alongside a selection round is safe; they touch different files.
 """
 from __future__ import annotations
 
@@ -19,19 +20,21 @@ from pathlib import Path
 
 import yaml
 
-from scripts.build_fixtures import _to_jpeg, collect_media
 from scripts.common.config import BENCH_ROOT, WORK_DIR
 from scripts.common.fetch import get_bytes
-from scripts.common.identifiers import gtin_to_14
+from scripts.common.media import to_jpeg
+from scripts.domains import FOOD
+
+MAX_CONCURRENCY = 8
 
 
 def missing_items() -> list[tuple[Path, str]]:
     sel = yaml.safe_load((WORK_DIR / "selection.yaml").read_text(encoding="utf-8"))
-    items = []
+    items: list[tuple[Path, str]] = []
     for code in sel.get("food") or []:
         code = str(code)
-        media_dir = BENCH_ROOT / "entities" / f"01-{gtin_to_14(code)}" / "media"
-        for fname, url, _lic in collect_media("food", code):
+        media_dir = BENCH_ROOT / "entities" / FOOD.entity_of(code).replace("/", "-") / "media"
+        for fname, url, _license in FOOD.media(code):
             target = media_dir / fname
             if not target.exists():
                 items.append((target, url))
@@ -41,22 +44,22 @@ def missing_items() -> list[tuple[Path, str]]:
 def _fetch(item: tuple[Path, str]) -> bool:
     target, url = item
     try:
-        data = _to_jpeg(get_bytes(url, image=True))
+        data = to_jpeg(get_bytes(url, image=True))
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
         return True
-    except Exception:  # noqa: BLE001 — 죽은 이미지 등은 빌드가 재시도 후 판정
+    except Exception:  # noqa: BLE001 — dead images are retried and judged by the build
         return False
 
 
 def main() -> None:
     items = missing_items()
-    print(f"미보유 이미지 {len(items)}건", flush=True)
+    print(f"missing images: {len(items)}", flush=True)
     if not items:
         return
-    with ThreadPoolExecutor(max_workers=8) as ex:
-        ok = sum(1 for r in ex.map(_fetch, items) if r)
-    print(f"받음 {ok} / 실패 {len(items) - ok} (실패분은 finalize가 재시도 후 판정)")
+    with ThreadPoolExecutor(max_workers=MAX_CONCURRENCY) as pool:
+        ok = sum(1 for r in pool.map(_fetch, items) if r)
+    print(f"fetched {ok} / failed {len(items) - ok} (failures are retried by finalize)")
 
 
 if __name__ == "__main__":
