@@ -15,15 +15,7 @@ plus QA with gold answers.
 > Absent from git and produced by a build: `entities/`, `counterfactual/`, `facts.jsonl`,
 > `manifest.json`, `qa.jsonl`, `releases/`, `results/`.
 
-The benchmark has two tracks:
-
-- **v1.0 (frozen)** — 20 hand-reviewed entities, 407 facts, **221 QA items** and a counterfactual
-  corpus. Evaluation runs use this release.
-- **Expansion track** — an automated bulk pipeline extends the corpus in batches. As of
-  2026-08-07: **75,471 entities, 1,880,481 facts, 487,954 pages, 211,516 images**. QA and
-  counterfactuals for the new entities come at version milestones.
-
-> 한국어판: [docs/README.ko.md](docs/README.ko.md) (v1.0 시점 기준)
+한국어판: [docs/README.ko.md](docs/README.ko.md) — 초기 코퍼스 시점 기준이라 수치는 낡았다.
 
 Why build this from scratch? GS1 Digital Link is a standard that turns a barcode into a gateway to product resources — nutrition facts, certifications, images — via a "linkset". But very few services operate real linksets today. We had a pipeline to evaluate and no data to evaluate it on, so we built the benchmark starting from the data.
 
@@ -41,16 +33,23 @@ Why build this from scratch? GS1 Digital Link is a standard that turns a barcode
 
 ## Dataset at a glance
 
-| Item | v1.0 (frozen) | Expansion track (2026-08-07) |
+As of 2026-08-07.
+
+| Item | | |
 |---|---|---|
-| Entities | 20 — 10 food + 10 places | **75,471** — 75,197 food and 20 OTC drugs (real GTINs) + 254 Korean attractions (demo GLNs) |
-| Facts | 407 | **1,880,481** |
-| Pages | 130 per corpus | **487,954** per corpus — 4 rotating templates (plain / table-heavy / JSON-LD / noisy), incl. EUC-KR pages |
-| Images | 58 | **211,516** — food front / nutrition label / ingredients, KOGL Type-1 place photos, DailyMed package labels |
-| QA | **221** — 210 html / 11 image, 126 EN / 95 KO, 5 multi-hop | pending (generated at version milestones) |
-| Counterfactual | 102 altered facts | corpus mirrors all entities; alterations still v1.0's 102 (expansion pending) |
+| **Entities** | **75,471** | 75,197 food + 20 OTC drugs (real GTINs), 254 Korean attractions (demo GLNs) |
+| **Facts** | **1,880,481** | atomic, each carrying its source field and character offsets |
+| **Pages** | **487,954** | per corpus — 4 rotating templates (plain / table-heavy / JSON-LD / noisy), incl. EUC-KR |
+| **Images** | **211,516** | food front / nutrition label / ingredients, KOGL Type-1 place photos, DailyMed package labels |
+| **Counterfactual** | second corpus | mirrors every entity; 102 facts are deliberately altered |
+| **QA** | **221** | 210 html / 11 image, 126 EN / 95 KO, 5 multi-hop — see the note below |
 
 The food axis is closed: every Open Food Facts product meeting the gates has been harvested.
+
+**QA is the open front.** The 221 questions cover 20 hand-reviewed entities, which is what
+evaluation has run against so far. Generating and reviewing QA across the full corpus is the
+next milestone — the design is in [docs/17](../docs/17-qa-generation-design.md), and the
+counterfactual alterations follow the same schedule.
 
 ## Repository layout
 
@@ -76,16 +75,16 @@ entities/
         └── ingredients.jpg
 ```
 
-`counterfactual/` mirrors the same folders, except values inside the pages of the v1.0 entities are deliberately different. A model that actually reads the pages gives different answers there; a model answering from memory gives the same ones.
+`counterfactual/` mirrors the same folders, except that the altered facts render different values. A model that actually reads the pages gives different answers there; a model answering from memory gives the same ones.
 
 **What the grader holds** — the answer key, never shown to the pipeline:
 
 | File | What it is | Handy version for humans |
 |---|---|---|
 | `facts.jsonl` | All 1,880,481 facts, one per line — the master record every page and answer was built from | `facts.pretty.json` (same content, grouped per entity → page for reading) |
-| `qa.jsonl` | The 221 questions with gold answers and which facts prove them (v1.0 entities) | `qa.csv` (open in Excel) |
+| `qa.jsonl` | The 221 questions with gold answers and the facts that prove them | `qa.csv` (open in Excel) |
 | `manifest.json` | Build record — most importantly the *placement map*: which page each fact was printed on. This is how the grader knows which page a retriever should have found | — |
-| `releases/v1.0/` | The frozen v1.0 snapshot (entities, counterfactual, facts, QA, selection) — what experiments actually run on | — |
+| `releases/` | Frozen snapshots — a corpus pinned at a point in time so an experiment stays comparable | — |
 
 All four are build outputs and ship with the dataset rather than with this repository.
 
@@ -124,7 +123,7 @@ The first five are **live** — their paths are wired into `scripts/`, so rename
 
 Here is Heinz Tomato Ketchup (GTIN 50457250) passing through each stage. The full story is in [docs/03-pipeline-walkthrough.md](docs/03-pipeline-walkthrough.md) (Korean).
 
-**① Select entities** (`select_entities.py` for v1.0; `scripts/bulk/` now). Candidates are machine-scored for richness (photos, nutrients, allergens...), pass the quality gates, and land in `work/selection.yaml`:
+**① Select entities** (`scripts/bulk/`). Candidates are machine-scored for richness (photos, nutrients, allergens...), pass the quality gates, and land in `work/selection.yaml`:
 
 ```yaml
 - "50457250"   # Heinz Tomato Ketchup — sauces / celery / GTIN-8 case
@@ -154,7 +153,7 @@ original: <td>sugars</td><td>22.8 g</td><td>3.42 g</td>
 CF      : <td>sugars</td><td>13.1 g</td><td>1.97 g</td>
 ```
 
-**⑥ Validate, then generate QA** (`validate.py`, `gen_qa.py`). After seven integrity checks pass (every fact rendered, every answer on exactly one page, every CF override diverged, ...), an LLM drafts questions page by page — but **gold answers must be picked from that page's facts only**. For v1.0, the 230 drafts went through a full manual review, leaving 221:
+**⑥ Validate, then generate QA** (`validate.py`, `gen_qa.py`). After seven integrity checks pass (every fact rendered, every answer on exactly one page, every CF override diverged, ...), an LLM drafts questions page by page — but **gold answers must be picked from that page's facts only**. The 230 drafts went through a full manual review, leaving 221:
 
 ```json
 {"question": "What is the amount of sugars in 100g of Tomato Ketchup?",
@@ -201,11 +200,11 @@ python -m scripts.gen_qa draft             # QA drafts + review CSV
 python -m scripts.gen_qa finalize          # merge review verdicts → qa.jsonl
 ```
 
-All API responses and LLM calls are cached under `data/raw/`, so with a warm cache the entire corpus regenerates identically, offline. To extend the corpus instead, use the bulk loop above; to run experiments, use `releases/v1.0/`.
+All API responses and LLM calls are cached under `data/raw/`, so with a warm cache the entire corpus regenerates identically, offline. To extend the corpus instead, use the bulk loop above; to keep an experiment comparable, pin a release.
 
 ## Evaluation harness
 
-Implemented in `eval/` (design: [docs/04-evaluation-system-design.md](docs/04-evaluation-system-design.md)). It runs the **real RAG pipeline graph** — unmodified — against the v1.0 release, swapping only where documents come from. Two layers of output: **blackbox scores** graded purely on final answers against gold, and **trace diagnostics** parsed from logs (did the retriever reach the gold page, was the VLM invoked) reported as best-effort diagnostics, never as part of the score. Runs are compared across KG-hit / KG-miss states and original / counterfactual corpora; results land in `results/`.
+Implemented in `eval/` (design: [docs/04-evaluation-system-design.md](docs/04-evaluation-system-design.md)). It runs the **real RAG pipeline graph** — unmodified — against the corpus, swapping only where documents come from. Two layers of output: **blackbox scores** graded purely on final answers against gold, and **trace diagnostics** parsed from logs (did the retriever reach the gold page, was the VLM invoked) reported as best-effort diagnostics, never as part of the score. Runs are compared across KG-hit / KG-miss states and original / counterfactual corpora; results land in `results/`.
 
 ## Sources and caveats
 
@@ -217,8 +216,7 @@ Implemented in `eval/` (design: [docs/04-evaluation-system-design.md](docs/04-ev
 
 ## Limitations & TODO
 
-- **QA covers only the 20 v1.0 entities** (221 items); QA for the expansion entities is generated and reviewed at version milestones, not per batch. This is the current bottleneck — see [docs/17](../docs/17-qa-generation-design.md) for the design.
-- **Counterfactual alterations likewise cover only v1.0** (102 facts); the expansion entities' CF folders are currently unaltered mirrors.
+- **QA and counterfactual alterations cover 20 entities so far** — see the note under "Dataset at a glance". Everything else in the corpus is built and validated but not yet questioned.
 - Image QA covers a single skill — reading nutrition labels — with 11 items. Front/ingredients photos and place photos are room to grow.
 - Only 5 multi-hop questions; multi-hop QA is regenerated globally at milestones since answers shift as the corpus grows.
 - The food axis is exhausted: every OFF product meeting the gates has been taken. Growing it
